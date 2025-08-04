@@ -17,45 +17,46 @@ export default function ContactSection() {
 
     return (
         <section className="flex flex-col bg-white dark:bg-black px-6 py-8 gap-10 opacity-100 
+
                     md:px-10 md:py-12 
-                    lg:px-14 lg:py-16 
+                    lg:px-14 lg:py-16  
                     xl:px-16 xl:py-20">
 
             <ResponsiveBadge label="Conatct Us" />
 
             <div className="flex flex-col lg:flex-row justify-between gap-10 opacity-100">
                 {/* Left - Text */}
-                <div className=" h-[128px] opacity-100 
-                md:h-[176px] lg:h-[288px] lg:max-w-[396px] 
-                lg:w-1/2 xl:h-[360px] xl:max-w-[572px]">
+                <h2
+                    className="h-[128px] opacity-100 
+                        md:h-[176px] lg:h-[288px] lg:max-w-[396px] 
+                        lg:w-1/2 xl:h-[360px] xl:max-w-[572px]
+                        text-[#110C22] dark:text-white font-manrope font-semibold 
+                        text-[52px] leading-[64px] tracking-[-0.01em]
+                        md:text-[76px] md:leading-[88px] md:tracking-normal md:font-bold 
+                        lg:text-[88px] lg:leading-[96px] lg:font-bold  
+                        xl:text-[104px] xl:leading-[120px] xl:font-bold"
+                >
+                    {/* Default + small: inline layout */}
+                    <span className="block lg:hidden gap-2">
+                        Let’s
+                        <span className="text-[#0084FF] dark:text-[#71BBFF]">Get in</span> <br />
+                        <span className="text-[#0BAA60] dark:text-[#6FDAA6]">touch</span>
+                    </span>
 
-                    <h2 className="text-[#110C22] dark:text-white font-manrope font-semibold text-[52px] leading-[64px] tracking-[-0.01em] h-[128px] 
-                        md:text-[76px] md:leading-[88px] md:tracking-normal md:font-bold md:h-[176px] 
-                        lg:text-[88px] lg:leading-[96px] lg:font-bold  lg:h-[288px] 
-                        xl:text-[104px] xl:leading-[120px] xl:font-bold  xl:h-[360px]">
-
-                        {/* Default + small: inline layout */}
-                        <span className="block lg:hidden gap-2">
-                            Let’s
-                            <span className="text-[#0084FF] dark:text-[#71BBFF]">Get in</span> <br />
-                            <span className="text-[#0BAA60] dark:text-[#6FDAA6]">touch</span>
-                        </span>
-                        
-                        {/* Medium and above: broken layout */}
-                        <span className="hidden lg:block">
-                            Let’s <br />
-                            <span className="text-[#0084FF] dark:text-[#71BBFF]">Get in</span> <br />
-                            <span className="text-[#0BAA60] dark:text-[#6FDAA6]">Touch</span>
-                        </span>
-                    </h2>
-
-                </div>
+                    {/* Medium and above: broken layout */}
+                    <span className="hidden lg:block">
+                        Let’s <br />
+                        <span className="text-[#0084FF] dark:text-[#71BBFF]">Get in</span> <br />
+                        <span className="text-[#0BAA60] dark:text-[#6FDAA6]">Touch</span>
+                    </span>
+                </h2>
 
                 {/* Right - Form */}
                 <form
                     onSubmit={handleSubmit}
                     className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] rounded-[32px] p-6 space-y-6 opacity-100 shadow-sm 
-                    md:rounded-[48px] md:p-8"
+      md:rounded-[48px] md:p-8
+      lg:w-1/2"
                 >
                     <div className="w-full h-fit opacity-100 space-y-6">
                         <div className="w-full h-fit opacity-100 space-y-1">
@@ -84,7 +85,7 @@ export default function ContactSection() {
                             />
                         </div>
 
-                        <div >
+                        <div>
                             <label className="w-full h-fit pl-1 text-[12px] leading-4 font-manrope font-semibold text-[#110C22] dark:text-white">Your Message</label>
                             <textarea
                                 name="message"
@@ -96,9 +97,7 @@ export default function ContactSection() {
                                 required
                             />
                         </div>
-
                     </div>
-
 
                     <div className="flex justify-end">
                         <button
@@ -110,6 +109,7 @@ export default function ContactSection() {
                     </div>
                 </form>
             </div>
+
 
         </section>
     )

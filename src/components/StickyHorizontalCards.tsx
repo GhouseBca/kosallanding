@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useRef, useState } from "react";
 import ImageCard1 from "@/components/cardimage1";
@@ -6,59 +6,104 @@ import ImageCard2 from "@/components/imagecard2";
 import ImageCard3 from "@/components/imagecard3";
 import ImageCard4 from "@/components/imagecard4";
 
-export default function StickyHorizontalCards() {
+const CARD_WIDTH = 799;
+const GAP_WIDTH = 32;
+const TOTAL_CARDS = 4;
+const cards = [ImageCard1, ImageCard2, ImageCard3, ImageCard4];
+
+interface StickyHorizontalCardsProps {
+  onFocusChange?: (focusedIndex: number) => void;
+}
+
+export default function StickyHorizontalCards({ onFocusChange }: StickyHorizontalCardsProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [wrapperHeight, setWrapperHeight] = useState(0);
   const [sidePadding, setSidePadding] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [focusedIndex, setFocusedIndex] = useState(0);
 
-  const CARD_WIDTH = 799;
-  const GAP_WIDTH = 32; // Tailwind gap-8 = 32px
-  const TOTAL_CARDS = 4;
+  // ---- Hydration-safe dynamic opacities ----
+  const [opacities, setOpacities] = useState<number[]>(() => Array(TOTAL_CARDS).fill(1)); // fallback for SSR
 
-  // Calculate side padding and wrapper height on mount and resize
+  // Resizer for wrapper/track
   useEffect(() => {
     function updateSizes() {
       const winWidth = window.innerWidth;
-
-      // Space needed on both sides to center first and last cards
       const padding = (winWidth / 2) - (CARD_WIDTH / 2);
       setSidePadding(padding > 0 ? padding : 0);
 
-      // total content width: cards + gaps + side paddings
-      const totalWidth = TOTAL_CARDS * CARD_WIDTH + (TOTAL_CARDS - 1) * GAP_WIDTH + padding * 2;
+      const totalWidth =
+        TOTAL_CARDS * CARD_WIDTH +
+        (TOTAL_CARDS - 1) * GAP_WIDTH +
+        (padding > 0 ? padding * 2 : 0);
 
-      // Reduce height by 200px safely; adjust this number as you see fit
       const reducedHeight = totalWidth - winWidth + window.innerHeight - 200;
       setWrapperHeight(reducedHeight > 0 ? reducedHeight : 0);
     }
-
     updateSizes();
     window.addEventListener("resize", updateSizes);
     return () => window.removeEventListener("resize", updateSizes);
   }, []);
 
-  // Scroll handler: same logic remains
+  // Card scroll/opacity/focus logic runs client-side only
   useEffect(() => {
-    function onScroll() {
+    function handleScroll() {
       if (!wrapperRef.current || !trackRef.current) return;
       const wrapperRect = wrapperRef.current.getBoundingClientRect();
       const winWidth = window.innerWidth;
 
-      const totalWidth = 
-        TOTAL_CARDS * CARD_WIDTH + 
-        (TOTAL_CARDS - 1) * GAP_WIDTH + 
+      const totalWidth =
+        TOTAL_CARDS * CARD_WIDTH +
+        (TOTAL_CARDS - 1) * GAP_WIDTH +
         sidePadding * 2;
 
       const maxScroll = totalWidth - winWidth;
-      const scrollProgress = Math.min(Math.max(0, -wrapperRect.top), maxScroll);
+      const progress = Math.min(Math.max(0, -wrapperRect.top), maxScroll);
 
-      trackRef.current.style.transform = `translateX(-${scrollProgress}px)`;
+      trackRef.current.style.transform = `translateX(-${progress}px)`;
+      setScrollProgress(progress);
+
+      // --- Center + Focus calculation ---
+      const viewportCenter = progress + winWidth / 2;
+      const cardCenters = Array(TOTAL_CARDS)
+        .fill(0)
+        .map((_, i) => i * (CARD_WIDTH + GAP_WIDTH) + CARD_WIDTH / 2 + sidePadding);
+
+      // Opacity update
+      const maxDistance = CARD_WIDTH / 2 + GAP_WIDTH;
+      const newOpacities = cardCenters.map(center => {
+        const distance = Math.abs(center - viewportCenter);
+        if (distance < maxDistance) {
+          return 1 - (distance / maxDistance) * (1 - 0.3);
+        }
+        return 0.3;
+      });
+      setOpacities(newOpacities);
+
+      // Focus update
+      let closestIndex = 0;
+      let minDistance = Infinity;
+      cardCenters.forEach((center, idx) => {
+        const dist = Math.abs(center - viewportCenter);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestIndex = idx;
+        }
+      });
+
+      if (closestIndex !== focusedIndex) {
+        setFocusedIndex(closestIndex);
+        onFocusChange?.(closestIndex);
+      }
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [sidePadding]); // depend on sidePadding so transform updates correctly
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // initial call for client
+
+    return () => window.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line
+  }, [sidePadding, focusedIndex, onFocusChange]);
 
   return (
     <div
@@ -75,10 +120,17 @@ export default function StickyHorizontalCards() {
           className="flex gap-8 will-change-transform transition-none min-w-max overflow-visible"
           style={{ paddingLeft: sidePadding, paddingRight: sidePadding }}
         >
-          <ImageCard1 />
-          <ImageCard2 />
-          <ImageCard3 />
-          <ImageCard4 />
+          {cards.map((CardComp, idx) => (
+            <div
+              key={idx}
+              style={{
+                transition: "opacity 0.3s",
+                opacity: opacities[idx] ?? 1, // fallback for SSR
+              }}
+            >
+              <CardComp />
+            </div>
+          ))}
         </div>
       </div>
     </div>

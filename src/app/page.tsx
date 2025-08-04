@@ -1,17 +1,15 @@
 import Hero from "@/components/Hero";
-import Fotter from "@/components/Fotter";
-import ContactSection from "@/components/ContactSection";
+import AboutUsSection from "@/components/AboutUsSection";
+import SolutionsSection from "@/components/SolutionsSection";
+import OurServices from "@/components/OurServices";
+import WhyChooseKosal from "@/components/WhyChooseKosal";
 import LadderAcademySection from "@/components/LadderAcademySection";
 import AccelerateSection from "@/components/CTACard";
-import WhyChooseKosal from "@/components/WhyChooseKosal";
-import OurServices from "@/components/OurServices";
-import SolutionsSection from "@/components/SolutionsSection";
-import AboutUsSection from "@/components/AboutUsSection";
+import ContactSection from "@/components/ContactSection";
+import Fotter from "@/components/Fotter";
 
-// If you still see JSX/React type errors, ensure 'next-env.d.ts' exists in your project root. This file is required for Next.js TypeScript projects to recognize JSX types.
 export default function Home() {
   return (
-    
        <div>
           <Hero/>
           <AboutUsSection />

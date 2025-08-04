@@ -38,10 +38,8 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="bg-white dark:bg-black flex flex-col py-8 px-6 gap-6 
-                md:py-12 md:px-10 md:gap-10 
-                lg:py-16 lg:px-14 
-                xl:py-20 xl:px-16">
+    <section id='services' className="bg-white dark:bg-black flex flex-col py-8 px-6 gap-6 
+                md:py-12 md:px-10 md:gap-10 lg:py-16 lg:px-14 xl:py-20 xl:px-16">
 
       {/* Badge */}
       <div className="flex justify-center">

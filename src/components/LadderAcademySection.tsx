@@ -6,7 +6,7 @@ import { FeatureCard } from './FeatureCard'
 
 export default function LadderAcademySection() {
   return (
-    <section className="bg-white dark:bg-[#0C0C0C] text-gray-800 dark:text-gray-100 flex flex-col items-center
+    <section id='ladder' className="bg-white dark:bg-[#0C0C0C] text-gray-800 dark:text-gray-100 flex flex-col items-center
               w-full h-fit gap-6 p-8 md:gap-10 md:px-10 md:py-12 
               lg:px-14 lg:py-16 xl:px-16 xl:py-20">
       

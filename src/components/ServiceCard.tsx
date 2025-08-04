@@ -1,7 +1,7 @@
-// components/ServiceCard.tsx
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 
 interface ServiceCardProps {
     imageSrc: string
@@ -10,12 +10,27 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ imageSrc, title, description }: ServiceCardProps) {
-    return (
-        <div className="bg-[#F8F8F8] dark:bg-[#161616] hover:bg-[#ECECED] dark:hover:bg-[#F8F8F8] dark:hover:text-[#110C22] 
-                flex flex-col shadow-sm
-                rounded-[32px] py-[24px] px-[32px] gap-4 md:h-fit">
+    const [isHovered, setIsHovered] = useState(false);
 
-            <Image src={imageSrc} alt={title} width={24} height={24} className="relative top-[2.67px] left-[2.67px] opacity-100" />
+    return (
+        <div 
+            className={`bg-[#F8F8F8] dark:bg-[#161616] hover:bg-[#ECECED] dark:hover:bg-[#F8F8F8] dark:hover:text-[#110C22] 
+                flex flex-col shadow-sm
+                rounded-[32px] py-[24px] px-[32px] gap-4 md:h-fit
+                transition-all duration-300 ease-out ${isHovered ? 'transform -translate-y-2' : ''}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={{ opacity: 1 }}
+        >
+            <div>
+                <Image 
+                    src={imageSrc} 
+                    alt={title} 
+                    width={24} 
+                    height={24} 
+                    className="relative top-[2.67px] left-[2.67px] opacity-100 transition-opacity duration-400" 
+                />
+            </div>
             
             <div className="w-full h-fit flex flex-col gap-4 opacity-100">
                 <div className="w-full h-fit gap-2 opacity-100">
@@ -24,9 +39,8 @@ export default function ServiceCard({ imageSrc, title, description }: ServiceCar
                 </div>
                 
                 <a href="#" className="text-primary text-sm font-medium hover:underline flex items-center gap-[6px] pb-[2px] w-fit h-fit opacity-100">
-                    Learn more <img src=" /icons/Arrow_link.svg " alt="arrow" />
+                    Learn more <img src="/icons/Arrow_link.svg" alt="arrow" />
                 </a>
-                
             </div>
         </div>
     )

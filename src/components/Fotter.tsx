@@ -6,8 +6,20 @@ import {
   Mail,
 } from 'lucide-react'
 import Image from 'next/image'
+import { useCallback } from 'react'
 
 export default function Footer() {
+  // Smooth scroll function
+  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Offset for fixed header
+        behavior: 'smooth'
+      });
+    }
+  }, []);
   return (
     <footer className="w-full h-fit bg-[#F3F3F4] dark:bg-[#1A1A1A] px-6 py-8 gap-[56px] md:px-10 md:py-12 md:gap-[64px] 
               lg:px-14 lg:py-16 lg:gap-[80px] xl:px-16 xl:py-20 flex flex-col">
@@ -64,22 +76,22 @@ export default function Footer() {
           
           <div className="flex flex-col items-start gap-3 xl:gap-4">
             <div className="inline-flex items-center gap-[4px] xl:gap-[6px] xl:pb-[2px] ">
-              <a href="#" className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle">Home</a>
+              <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle cursor-pointer">Home</a>
             </div>
             <div className="inline-flex items-center gap-[4px] xl:gap-[6px] xl:pb-[2px] ">
-              <a href="#" className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle">Services</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle cursor-pointer">Services</a>
             </div>
             <div className="inline-flex items-center gap-[4px] xl:gap-[6px] xl:pb-[2px] ">
-              <a href="#" className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle">Products</a>
+              <a href="#products" onClick={(e) => scrollToSection(e, 'products')} className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle cursor-pointer">Products</a>
             </div>
             <div className="inline-flex items-center gap-[4px] xl:gap-[6px] xl:pb-[2px] ">
-              <a href="#" className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle">Why Chose Kosal</a>
+              <a href="#wck" onClick={(e) => scrollToSection(e, 'wck')} className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle cursor-pointer">Why Chose Kosal</a>
             </div>
             <div className="inline-flex items-center gap-[4px] xl:gap-[6px] xl:pb-[2px] ">
-              <a href="#" className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle">Ladder Academy</a>
+              <a href="#ladder" onClick={(e) => scrollToSection(e, 'ladder')} className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle cursor-pointer">Ladder Academy</a>
             </div>
             <div className="inline-flex items-center gap-[4px] xl:gap-[6px] xl:pb-[2px] ">
-              <a href="#" className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle ">About Us</a>
+              <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:underline hover:text-[#0A6CDB] text-[#4F4B5C] dark:text-[#C2C2C2] text-[16px] leading-[24px] font-manrope font-semibold align-middle cursor-pointer">About Us</a>
             </div>
           </div>
         </div>
