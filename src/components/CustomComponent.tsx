@@ -14,20 +14,19 @@ export default function CustomComponent({
   imageAlt = "Image",
 }: CustomComponentProps) {
   return (
-    <div className="flex flex-row w-full h-fit gap-9 opacity-100 py-2 px-2 rounded-[24px] border">
-      <div className="flex flex-col w-full h-fit gap-2 opacity-100">
+    <div className="flex flex-col md:flex-row w-full h-fit gap-6 md:gap-5 opacity-100 py-2 px-2 rounded-[24px] border">
+      <div className="flex flex-col w-full md:w-auto h-fit gap-2 opacity-100">
         <h2 className="text-[#110C22] dark:text-white font-semibold text-lg">
           {heading}
         </h2>
-        <p className="text-[#4F4B5C] text-nowrap dark:text-[#C2C2C2] text-base">
+        <p className="text-[#4F4B5C] whitespace-nowrap dark:text-[#C2C2C2] text-base">
           {paragraph}
         </p>
       </div>
-
       <img
         src={imageSrc}
         alt={imageAlt}
-        className="object-contain rounded-lg"
+        className="object-contain rounded-lg w-full md:w-auto"
       />
     </div>
   );

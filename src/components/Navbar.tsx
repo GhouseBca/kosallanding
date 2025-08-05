@@ -176,13 +176,65 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className=" w-full p-4">
             <div className="flex flex-col gap-6 mt-8 font-manrope text-gray-700">
-              <div className="flex items-center gap-1">
-                Services <ChevronDown size={14} />
+                    <div
+                className="flex items-center gap-1 cursor-default font-medium text-[14px] leading-[24px] tracking-[0%] 
+                  text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative"
+              >
+                <span>Services</span>
+                <span
+                  onMouseEnter={() => setShowServices(true)}
+                  onMouseLeave={() => setShowServices(false)}
+                  className="relative"
+                >
+                  <ChevronDown size={14} />
+                  {/* Left-side Services Dropdown */}
+                  {showServices && (
+                    <div
+                      onMouseEnter={() => setShowServices(true)}
+                      onMouseLeave={() => setShowServices(false)}
+                      className="fixed top-[64px] left-0 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
+                      style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
+                    >
+                      <Services />
+                    </div>
+                  )}
+                </span>
               </div>
-              <div className="flex items-center gap-1">
-                Products <ChevronDown size={14} />
-              </div>
-              <div>Careers</div>
+
+              {/* Products nav item with click-dropdown on ChevronDown / ChevronUp */}
+              <div className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
+                    text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative select-none">
+                  <span>Products</span>
+                  <span
+                    onClick={() => setShowProducts((prev) => !prev)}
+                    className="relative"
+                    aria-haspopup="true"
+                    aria-expanded={showProducts}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setShowProducts((prev) => !prev);
+                      }
+                    }}
+                  >
+                    {showProducts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                  </span>
+
+                  {/* Dropdown shown below the button */}
+                  {showProducts && (
+                    <div
+                      className="absolute top-full left-0 mt-2 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
+                      style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ProductDb />
+                    </div>
+                  )}
+                </div>
+
+              <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'wck'); }} className="cursor-pointer">Careers</div>
               <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'wck'); }} className="cursor-pointer">Why Chose Kosal</div>
               <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'ladder'); }} className="cursor-pointer">Ladder Academy</div>
               <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'about'); }} className="cursor-pointer">About Us</div>

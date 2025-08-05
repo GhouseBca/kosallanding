@@ -2,17 +2,11 @@ import CustomSection from "./smallgrid";
 
 export default function ServicesSection() {
   return (
-    <section
-      className="flex flex-col w-full h-fit gap-2 opacity-100 p-4"
-    >
-      <h1
-        className="flex flex-col gap-2 opacity-100 px-2"
-      >
-        {/* You can add your title text here */}
+    <section className="flex flex-col w-full h-fit gap-2 opacity-100 p-4">
+      <h1 className="flex flex-col gap-2 opacity-100 px-2 text-xl font-semibold">
         Our Services
       </h1>
-
-      <div className="w-fit h-fit grid grid-cols-3 grid-row-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-full h-fit">
         <CustomSection
           heading="Web Development"
           paragraph="A Restaurant Management Tool"

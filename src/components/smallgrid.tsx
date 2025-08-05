@@ -15,21 +15,18 @@ export default function CustomSection({
 }: CustomSectionProps) {
   return (
     <section
-      className="h-fit py-4 px-6 
-        opacity-100 rounded-[24px] border border-gray-300">
-
-      <div className="flex flex-row h-fit gap-4 opacity-100">
-          
+      className="h-fit py-4 px-6 opacity-100 rounded-[24px] border border-gray-300"
+    >
+      <div className="flex flex-col md:flex-row h-fit gap-4 opacity-100 items-center">
         {/* Text content */}
         <div className="flex flex-col h-fit gap-2 opacity-100">
           <h1 className="text-[#110C22] dark:text-white font-manrope font-semibold text-[16px] leading-[24px] tracking-normal">
             {heading}
           </h1>
-          <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium  text-[12px] leading-[16px] tracking-normal">
+          <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[12px] leading-[16px] tracking-normal">
             {paragraph}
           </p>
         </div>
-
         {/* Image container */}
         <div>
           <img
