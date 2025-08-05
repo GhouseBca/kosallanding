@@ -20,13 +20,11 @@ export default function StickyHorizontalCards({ onFocusChange }: StickyHorizonta
   const trackRef = useRef<HTMLDivElement>(null);
   const [wrapperHeight, setWrapperHeight] = useState(0);
   const [sidePadding, setSidePadding] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [focusedIndex, setFocusedIndex] = useState(0);
 
-  // ---- Hydration-safe dynamic opacities ----
+  // Hydration-safe dynamic opacities
   const [opacities, setOpacities] = useState<number[]>(() => Array(TOTAL_CARDS).fill(1)); // fallback for SSR
 
-  // Resizer for wrapper/track
   useEffect(() => {
     function updateSizes() {
       const winWidth = window.innerWidth;
@@ -46,7 +44,6 @@ export default function StickyHorizontalCards({ onFocusChange }: StickyHorizonta
     return () => window.removeEventListener("resize", updateSizes);
   }, []);
 
-  // Card scroll/opacity/focus logic runs client-side only
   useEffect(() => {
     function handleScroll() {
       if (!wrapperRef.current || !trackRef.current) return;
@@ -62,7 +59,6 @@ export default function StickyHorizontalCards({ onFocusChange }: StickyHorizonta
       const progress = Math.min(Math.max(0, -wrapperRect.top), maxScroll);
 
       trackRef.current.style.transform = `translateX(-${progress}px)`;
-      setScrollProgress(progress);
 
       // --- Center + Focus calculation ---
       const viewportCenter = progress + winWidth / 2;
@@ -99,7 +95,7 @@ export default function StickyHorizontalCards({ onFocusChange }: StickyHorizonta
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // initial call for client
+    handleScroll(); // initial call
 
     return () => window.removeEventListener("scroll", handleScroll);
     // eslint-disable-next-line

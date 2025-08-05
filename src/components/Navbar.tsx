@@ -15,7 +15,7 @@ export default function Navbar() {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   // Smooth scroll function
-  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const scrollToSection = useCallback((e: React.MouseEvent<HTMLElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
@@ -25,8 +25,13 @@ export default function Navbar() {
       });
     }
   }, []);
-  
-  // Optional: close dropdowns on outside click can be added later
+
+  // Mobile navigation click handler, properly typed and using available scope variables
+  const handleMobileNavClick = (id: string) => (e: React.MouseEvent<HTMLDivElement>) => {
+    setOpen(false);
+    // Cast event to anchor element event type if needed by scrollToSection
+    scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, id);
+  };
 
   return (
     <header
@@ -120,32 +125,32 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Other nav items remain unchanged */}
-        <a href="#" 
+        {/* Other nav items */}
+        <a
+          href="#"
           onClick={(e) => scrollToSection(e, 'careers')}
-          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
-            text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
+          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
           Careers
         </a>
-        <a href="#wck" 
+        <a
+          href="#wck"
           onClick={(e) => scrollToSection(e, 'wck')}
-          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
-            text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
+          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
           Why Chose Kosal
         </a>
-        <a href="#ladder" 
+        <a
+          href="#ladder"
           onClick={(e) => scrollToSection(e, 'ladder')}
-          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
-            text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
+          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
           Ladder Academy
         </a>
-        <a href="#about" 
+        <a
+          href="#about"
           onClick={(e) => scrollToSection(e, 'about')}
-          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
-            text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
+          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
           About Us
         </a>
@@ -166,7 +171,7 @@ export default function Navbar() {
         </Button>
       </div>
 
-      {/* Mobile Nav Toggle (unchanged) */}
+      {/* Mobile Nav Toggle */}
       <div className="xl:hidden">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
@@ -174,12 +179,9 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className=" w-full p-4">
+          <SheetContent side="right" className="w-full p-4">
             <div className="flex flex-col gap-6 mt-8 font-manrope text-gray-700">
-                    <div
-                className="flex items-center gap-1 cursor-default font-medium text-[14px] leading-[24px] tracking-[0%] 
-                  text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative"
-              >
+              <div className="flex items-center gap-1 cursor-default font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative">
                 <span>Services</span>
                 <span
                   onMouseEnter={() => setShowServices(true)}
@@ -201,43 +203,41 @@ export default function Navbar() {
                 </span>
               </div>
 
-              {/* Products nav item with click-dropdown on ChevronDown / ChevronUp */}
-              <div className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
-                    text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative select-none">
-                  <span>Products</span>
-                  <span
-                    onClick={() => setShowProducts((prev) => !prev)}
-                    className="relative"
-                    aria-haspopup="true"
-                    aria-expanded={showProducts}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setShowProducts((prev) => !prev);
-                      }
-                    }}
+              <div className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative select-none">
+                <span>Products</span>
+                <span
+                  onClick={() => setShowProducts((prev) => !prev)}
+                  className="relative"
+                  aria-haspopup="true"
+                  aria-expanded={showProducts}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setShowProducts((prev) => !prev);
+                    }
+                  }}
+                >
+                  {showProducts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                </span>
+
+                {/* Dropdown shown below the button */}
+                {showProducts && (
+                  <div
+                    className="absolute top-full left-0 mt-2 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
+                    style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    {showProducts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                  </span>
+                    <ProductDb />
+                  </div>
+                )}
+              </div>
 
-                  {/* Dropdown shown below the button */}
-                  {showProducts && (
-                    <div
-                      className="absolute top-full left-0 mt-2 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
-                      style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ProductDb />
-                    </div>
-                  )}
-                </div>
-
-              <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'wck'); }} className="cursor-pointer">Careers</div>
-              <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'wck'); }} className="cursor-pointer">Why Chose Kosal</div>
-              <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'ladder'); }} className="cursor-pointer">Ladder Academy</div>
-              <div onClick={(e) => { setOpen(false); scrollToSection(e as any, 'about'); }} className="cursor-pointer">About Us</div>
+              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer">Careers</div>
+              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer">Why Chose Kosal</div>
+              <div onClick={handleMobileNavClick('ladder')} className="cursor-pointer">Ladder Academy</div>
+              <div onClick={handleMobileNavClick('about')} className="cursor-pointer">About Us</div>
               <button
                 onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
                 className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"

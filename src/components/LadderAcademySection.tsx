@@ -1,6 +1,4 @@
 'use client'
-
-import { Globe, Smartphone, Server } from 'lucide-react'
 import ResponsiveBadge from './ResponsiveBadge'
 import { FeatureCard } from './FeatureCard'
 
