@@ -1,66 +1,45 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    // Set a small delay before starting the animation
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
   return (
     <section id="hero" className="h-fit mt-17 grid place-items-center text-center relative
-       px-[24px] py-[48px] gap-[32px]
-       md:px-[40px] md:py-[64px]
-       lg:px-[56px] lg:py-[80px]
-       xl:px-[64px] xl:py-[120px]">
+      px-[24px] py-[48px] gap-[32px]
+      md:px-[40px] md:py-[64px]
+      lg:px-[56px] lg:py-[80px]
+      xl:px-[64px] xl:py-[120px]">
 
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f4f4f5_1px,transparent_1px),linear-gradient(to_bottom,#f4f4f5_1px,transparent_1px)]
-         dark:bg-[linear-gradient(to_right,#1F1F1F_1px,transparent_1px),linear-gradient(to_bottom,#1F1F1F_1px,transparent_1px)] [background-size:90px_90px]">
+        dark:bg-[linear-gradient(to_right,#1F1F1F_1px,transparent_1px),linear-gradient(to_bottom,#1F1F1F_1px,transparent_1px)] [background-size:90px_90px]">
       </div>
 
       {/* Content Container */}
-      <div
-        className="z-10 flex flex-col items-center justify-center gap-[40px] w-full h-fit">
+      <div className="z-10 flex flex-col items-center justify-center gap-[40px] w-full h-fit">
         {/* Header & Paragraph Block */}
-        <div
-          className="flex flex-col gap-[32px] h-fit">
+        <div className="flex flex-col gap-[32px] h-fit">
           <h1
-            className={`text-[#110C22] dark:text-white
-            text-[32px] leading-[40px] tracking-[-0.01em] font-inter font-bold      
-            md:text-[52px] md:leading-[64px] md:tracking-[-0.01em] md:font-manrope md:font-semibold
-            lg:text-[76px] lg:leading-[88px] lg:tracking-[0] lg:font-bold
-            xl:text-[88px] xl:leading-[96px]
-            transform transition-all duration-1000 ease-in-out
-            ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
-            >
+            className="text-[#110C22] dark:text-white
+              text-[32px] leading-[40px] tracking-[-0.01em] font-inter font-bold      
+              md:text-[52px] md:leading-[64px] md:tracking-[-0.01em] md:font-manrope md:font-semibold
+              lg:text-[76px] lg:leading-[88px] lg:tracking-[0] lg:font-bold
+              xl:text-[88px] xl:leading-[96px]"
+          >
             Empowering Businesses with <br /> Smart Software Solutions
           </h1>
 
           <p
-           className={`text-[#4F4B5C] dark:text-[#C2C2C2] text-center 
+            className="text-[#4F4B5C] dark:text-[#C2C2C2] text-center 
               font-manrope font-medium text-[16px] leading-[24px]
               md:text-[18px] lg:font-inter lg:text-[20px] 
-              lg:leading-[32px] lg:tracking-[-0.01em]
-              transform transition-all duration-1000 ease-in-out delay-300
-              ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+              lg:leading-[32px] lg:tracking-[-0.01em]">
             From restaurants to enterprise management, we <br className="hidden sm:inline" /> build tools that grow with your goals.
           </p>
-
         </div>
 
         {/* Buttons */}
-        <div className={`flex justify-center items-center gap-4 w-fit h-fit
-              transform transition-all duration-1000 ease-in-out delay-500
-              ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className="flex justify-center items-center gap-4 w-fit h-fit">
           <Button variant="outline" className="gap-3 opacity-100 p-4 rounded-4 border">
             Schedule a Demo
           </Button>
@@ -68,7 +47,6 @@ export default function Hero() {
             Contact Us
           </Button>
         </div>
-
       </div>
     </section>
   );

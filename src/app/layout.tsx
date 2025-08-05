@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/providers/theme";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Inter } from "next/font/google";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata = {
   title: "Your App",
@@ -19,12 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          {children}
-        </ThemeProvider>
-      </body>
+     
+        <body>
+          <ConvexClientProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <Navbar />
+              {children}
+            </ThemeProvider>
+          </ConvexClientProvider> 
+        </body>
     </html>
   );
 }
