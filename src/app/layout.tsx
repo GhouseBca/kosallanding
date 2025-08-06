@@ -5,8 +5,12 @@ import { Inter } from "next/font/google";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata = {
-  title: "Your App",
-  description: "App with dark mode",
+  title: "KOSAL.IO",
+  description: "KOSAL.IO is a leading provider of mobile and web applications, with a focus on creating innovative solutions for our clients.",
+  icons: {
+    icon: "/icons/kosallogo 1.svg",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 const inter = Inter({

@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, ChevronUp, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import Services from "@/components/services"; // Adjust path if needed
+// import Services from "@/components/services"; // Adjust path if needed
 import ProductDb from "@/components/ProductDB"; // Adjust path if needed
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [showServices, setShowServices] = useState(false);
+  // const [showServices, setShowServices] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 
@@ -65,22 +65,17 @@ export default function Navbar() {
       {/* Desktop Nav */}
       <nav className="hidden xl:flex items-center text-sm font-manrope h-[24px] rotate-0 opacity-100 gap-[32px]">
         {/* Services nav item */}
-        <div
+        {/* <div
           className="flex items-center gap-1 cursor-default font-medium text-[14px] leading-[24px] tracking-[0%] 
             text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative"
+          onMouseEnter={() => setShowServices(true)}
+          onMouseLeave={() => setShowServices(false)}
         >
           <span>Services</span>
-          <span
-            onMouseEnter={() => setShowServices(true)}
-            onMouseLeave={() => setShowServices(false)}
-            className="relative"
-          >
-            <ChevronDown size={14} />
-            {/* Left-side Services Dropdown */}
+          <span className="relative">
+            {showServices ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
             {showServices && (
               <div
-                onMouseEnter={() => setShowServices(true)}
-                onMouseLeave={() => setShowServices(false)}
                 className="fixed top-[64px] left-0 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
                 style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
               >
@@ -88,41 +83,37 @@ export default function Navbar() {
               </div>
             )}
           </span>
-        </div>
+        </div> */}
 
         {/* Products nav item with click-dropdown on ChevronDown / ChevronUp */}
         <div
           className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
             text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative select-none"
+          onClick={() => setShowProducts(prev => !prev)}
+          role="button"
+          tabIndex={0}
+          aria-haspopup="true"
+          aria-expanded={showProducts}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setShowProducts(prev => !prev);
+            }
+          }}
         >
           <span>Products</span>
-          <span
-            onClick={() => setShowProducts((prev) => !prev)}
-            className="relative"
-            aria-haspopup="true"
-            aria-expanded={showProducts}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setShowProducts((prev) => !prev);
-              }
-            }}
-          >
+          <span className="relative">
             {showProducts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            {showProducts && (
+              <div
+                className="fixed top-[64px] left-0 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
+                style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
+                onClick={e => e.stopPropagation()}
+              >
+                <ProductDb />
+              </div>
+            )}
           </span>
-
-          {/* Products dropdown shown fixed on left side of screen */}
-          {showProducts && (
-            <div
-              className="fixed top-[64px] left-0 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
-              style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
-              onClick={(e) => e.stopPropagation()} // prevent accidental closure if needed later
-            >
-              <ProductDb />
-            </div>
-          )}
         </div>
 
         {/* Other nav items */}
@@ -132,6 +123,13 @@ export default function Navbar() {
           className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
           Careers
+        </a>
+        <a
+          href="#about"
+          onClick={(e) => scrollToSection(e, 'about')}
+          className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
+        >
+          About Us
         </a>
         <a
           href="#wck"
@@ -148,11 +146,11 @@ export default function Navbar() {
           Ladder Academy
         </a>
         <a
-          href="#about"
+          href="https://blogs.kosal.io/"
           onClick={(e) => scrollToSection(e, 'about')}
           className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
-          About Us
+          Blogs
         </a>
       </nav>
 
@@ -181,7 +179,7 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className="w-full p-4">
             <div className="flex flex-col gap-6 mt-8 font-manrope text-gray-700">
-              <div className="flex items-center gap-1 cursor-default font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative">
+              {/* <div className="flex items-center gap-1 cursor-default font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative">
                 <span>Services</span>
                 <span
                   onMouseEnter={() => setShowServices(true)}
@@ -190,7 +188,7 @@ export default function Navbar() {
                 >
                   <ChevronDown size={14} />
                   {/* Left-side Services Dropdown */}
-                  {showServices && (
+                  {/* {showServices && (
                     <div
                       onMouseEnter={() => setShowServices(true)}
                       onMouseLeave={() => setShowServices(false)}
@@ -201,7 +199,7 @@ export default function Navbar() {
                     </div>
                   )}
                 </span>
-              </div>
+              </div> */} 
 
               <div className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative select-none">
                 <span>Products</span>
@@ -234,10 +232,17 @@ export default function Navbar() {
                 )}
               </div>
 
-              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer">Careers</div>
-              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer">Why Chose Kosal</div>
-              <div onClick={handleMobileNavClick('ladder')} className="cursor-pointer">Ladder Academy</div>
-              <div onClick={handleMobileNavClick('about')} className="cursor-pointer">About Us</div>
+              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Careers</div>
+              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Why Chose Kosal</div>
+              <div onClick={handleMobileNavClick('ladder')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Ladder Academy</div>
+              <div onClick={handleMobileNavClick('about')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">About Us</div>
+              <a
+                href="https://blogs.kosal.io"
+                onClick={(e) => scrollToSection(e, 'about')}
+                className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
+              >
+                Blogs
+              </a>
               <button
                 onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
                 className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"

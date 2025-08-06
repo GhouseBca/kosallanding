@@ -64,7 +64,7 @@ export default function AboutUsSection() {
                 <StatsGrid.Item value="2.5" label="Years of Experience" />
                 <StatsGrid.Item value="23" label="Projects Completed" />
                 <StatsGrid.Item value="4" label="Own Products" />
-                <StatsGrid.Item value="50+" label="Happy Customers" />
+                <StatsGrid.Item value="50" label="Happy Customers" />
             </StatsGrid>
 
         </section>

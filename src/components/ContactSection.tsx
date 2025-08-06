@@ -1,30 +1,30 @@
 'use client'
 
-import { useState } from 'react'
+// import { useState } from 'react'
 import ResponsiveBadge from './ResponsiveBadge'
 // Convex hooks and API
-import { useMutation } from 'convex/react'
-import { api } from "../../convex/_generated/api" // Adjust path if needed
+// import { useMutation } from 'convex/react'
+// import { api } from "../../convex/_generated/api" // Adjust path if needed
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const saveContact = useMutation(api.contact.insertContact) // Mutation from Convex
+  // const [form, setForm] = useState({ name: '', email: '', message: '' })
+  // const saveContact = useMutation(api.contact.insertContact) // Mutation from Convex
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   setForm({ ...form, [e.target.name]: e.target.value })
+  // }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      await saveContact(form)
-      alert('Message sent successfully!')
-      setForm({ name: '', email: '', message: '' }) // Clear form on success
-    } catch (error) {
-      console.error('Failed to send message', error)
-      alert('Failed to send message, please try again.')
-    }
-  }
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   try {
+  //     await saveContact(form)
+  //     alert('Message sent successfully!')
+  //     setForm({ name: '', email: '', message: '' }) // Clear form on success
+  //   } catch (error) {
+  //     console.error('Failed to send message', error)
+  //     alert('Failed to send message, please try again.')
+  //   }
+  // }
 
   return (
     <section className="flex flex-col bg-white dark:bg-black px-6 py-8 gap-10 opacity-100 md:px-10 md:py-12 lg:px-14 lg:py-16 xl:px-16 xl:py-20">
@@ -44,7 +44,7 @@ export default function ContactSection() {
         </h2>
 
         {/* Right - Form */}
-        <form onSubmit={handleSubmit} className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] rounded-[32px] p-6 space-y-6 opacity-100 shadow-sm md:rounded-[48px] md:p-8 lg:w-1/2">
+        {/* <form onSubmit={handleSubmit} className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] rounded-[32px] p-6 space-y-6 opacity-100 shadow-sm md:rounded-[48px] md:p-8 lg:w-1/2">
           <div className="w-full h-fit opacity-100 space-y-6">
             <div className="w-full h-fit opacity-100 space-y-1">
               <label className="w-full h-fit pl-1 text-[12px] leading-4 font-manrope font-semibold text-[#110C22] dark:text-white">Your Name</label>
@@ -93,7 +93,7 @@ export default function ContactSection() {
               Submit
             </button>
           </div>
-        </form>
+        </form> */}
       </div>
     </section>
   )

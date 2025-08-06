@@ -31,7 +31,7 @@ export default function LadderAcademySection() {
         <FeatureCard
           title="Mobile Development"
           description="Cross-platform mobile apps for iOS and Android using React Native and Flutter."
-          iconSrc="/icons/mobile.svg"
+          iconSrc="/icons/Mobile.svg"
         />
         <FeatureCard
           title="Backend Development"
