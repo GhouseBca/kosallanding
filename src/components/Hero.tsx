@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
+import { HexagonBackground } from "./animate-ui/backgrounds/hexagon";
 
 export default function Hero() {
   return (
@@ -11,9 +12,12 @@ export default function Hero() {
       xl:px-[64px] xl:py-[120px]">
 
       {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f4f4f5_1px,transparent_1px),linear-gradient(to_bottom,#f4f4f5_1px,transparent_1px)]
-        dark:bg-[linear-gradient(to_right,#1F1F1F_1px,transparent_1px),linear-gradient(to_bottom,#1F1F1F_1px,transparent_1px)] [background-size:90px_90px]">
-      </div>
+      {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#f4f4f5_1px,transparent_1px),linear-gradient(to_bottom,#f4f4f5_1px,transparent_1px)]
+        dark:bg-[linear-gradient(to_right,#1F1F1F_1px,transparent_1px),linear-gradient(to_bottom,#1F1F1F_1px,transparent_1px)] [background-size:90px_90px]
+        ">
+      </div> */}
+      
+      <HexagonBackground className="absolute inset-0 flex items-center justify-center rounded-xl" />
 
       {/* Content Container */}
       <div className="z-10 flex flex-col items-center justify-center gap-[40px] w-full h-fit">

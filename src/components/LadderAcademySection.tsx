@@ -1,6 +1,7 @@
 'use client'
 import ResponsiveBadge from './ResponsiveBadge'
 import { FeatureCard } from './FeatureCard'
+import { BlurFade } from './magicui/blur-fade'
 
 export default function LadderAcademySection() {
   return (
@@ -22,7 +23,9 @@ export default function LadderAcademySection() {
       </h2>
 
       {/* Cards */}
+      <BlurFade delay={0.25} inView>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
         <FeatureCard
           title="Web Development"
           description="Modern, responsive web applications built with React, Next.js, and other cutting-edge technologies."
@@ -38,7 +41,9 @@ export default function LadderAcademySection() {
           description="Robust, well-documented APIs for seamless integration between systems."
           iconSrc="/icons/Server.svg"
         />
+        
       </div>
+      </BlurFade>
 
       {/* CTA Button */}
       <div className="flex justify-center">

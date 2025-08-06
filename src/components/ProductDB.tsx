@@ -19,22 +19,22 @@ export default function CustomLayoutPage() {
               imageAlt="web icon"
             />
             <CustomComponent
-              heading="Collection App"
-              paragraph="A Restaurant Management Tool"
+              heading="Kisforms"
+              paragraph="AI Powered Form Builder"
               imageSrc="/img/Collection App.png"
               imageAlt="web icon"
             />
           </div>
           <div className="flex flex-col gap-4 md:flex-row">
             <CustomComponent
-              heading="Linkedin AI"
-              paragraph="A Restaurant Management Tool"
-              imageSrc="/img/Linkedin.png"
+              heading="Post Pilot"
+              paragraph="AI Powered Content Creation"
+              imageSrc="/img/linkedin.png"
               imageAlt="web icon"
             />
             <CustomComponent
-              heading="Retailer’s CRM"
-              paragraph="A Restaurant Management Tool"
+              heading="Invoicely"
+              paragraph="Smart Invoice Management"
               imageSrc="/img/Retailer CRM.png"
               imageAlt="web icon"
             />

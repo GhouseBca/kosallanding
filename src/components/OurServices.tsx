@@ -2,6 +2,7 @@
 
 import ServiceCard from '@/components/ServiceCard'
 import ResponsiveBadge from './ResponsiveBadge'
+import { BlurFade } from './magicui/blur-fade'
 
 const services = [
   {
@@ -38,35 +39,38 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section id='services' className="bg-white dark:bg-black flex flex-col py-8 px-6 gap-6 
-                md:py-12 md:px-10 md:gap-10 lg:py-16 lg:px-14 xl:py-20 xl:px-16">
-
+    <section
+      id="services"
+      className="bg-white dark:bg-black flex flex-col py-8 px-6 gap-6 
+        md:py-12 md:px-10 md:gap-10 lg:py-16 lg:px-14 xl:py-20 xl:px-16"
+    >
       {/* Badge */}
       <div className="flex justify-center">
         <ResponsiveBadge label="Our Services" />
       </div>
 
       {/* Heading */}
-      <h2 className=" text-[#110C22] dark:text-white font-inter font-semibold text-center 
-            text-[26px] leading-[40px] tracking-[-0.01em]
-            md:text-[44px] md:leading-[64px] md:font-manrope 
-            lg:text-[52px] xl:text-[64px] xl:leading-[72px] xl:font-inter"
-        >
-
-        Whatever you need,<br />
+      <h2
+        className="text-[#110C22] dark:text-white font-inter font-semibold text-center 
+          text-[26px] leading-[40px] tracking-[-0.01em]
+          md:text-[44px] md:leading-[64px] md:font-manrope 
+          lg:text-[52px] xl:text-[64px] xl:leading-[72px] xl:font-inter"
+      >
+        Whatever you need,
+        <br />
         we’ll <span className="text-primary">build it.</span>
-
       </h2>
 
       {/* Services Grid */}
       <div className="w-full h-fit grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
         {services.map((service, idx) => (
-          <ServiceCard
-            key={idx}
-            imageSrc={service.imageSrc}
-            title={service.title}
-            description={service.description}
-          />
+          <BlurFade key={service.title || idx} delay={0.25 + idx * 0.05} inView>
+            <ServiceCard
+              imageSrc={service.imageSrc}
+              title={service.title}
+              description={service.description}
+            />
+          </BlurFade>
         ))}
       </div>
     </section>

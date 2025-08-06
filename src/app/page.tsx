@@ -7,6 +7,7 @@ import LadderAcademySection from "@/components/LadderAcademySection";
 import AccelerateSection from "@/components/CTACard";
 import ContactSection from "@/components/ContactSection";
 import Fotter from "@/components/Fotter";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <AccelerateSection />
           <ContactSection />
           <Fotter/>
+          <SmoothCursor />
        </div> 
   );
 }
