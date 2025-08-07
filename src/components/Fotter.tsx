@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import { useCallback } from 'react'
+import { NeonGradientCard } from './magicui/neon-gradient-card';
 
 export default function Footer() {
   // Smooth scroll function
@@ -131,11 +132,13 @@ export default function Footer() {
       {/* Middle Logo */}
       <div className="flex justify-center">
         <div className="max-w-[708.69px] h-[144.62px] flex items-center justify-center">
-          <img
-            src="/img/Heading.png"
-            alt="KOSAL Heading"
-            className="w-full h-full object-contain"
-          />
+          <NeonGradientCard className="max-w-xl items-center justify-center text-center">
+            <img
+              src="/img/Heading.png"
+              alt="KOSAL Heading"
+              className="w-full h-full object-contain"
+            />
+          </NeonGradientCard>
         </div>
       </div>
 

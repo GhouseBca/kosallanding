@@ -1,5 +1,6 @@
 'use client'
 
+import { Particles } from './magicui/particles'
 // import { useState } from 'react'
 import ResponsiveBadge from './ResponsiveBadge'
 // Convex hooks and API
@@ -27,7 +28,7 @@ export default function ContactSection() {
   // }
 
   return (
-    <section className="flex flex-col bg-white dark:bg-black px-6 py-8 gap-10 opacity-100 md:px-10 md:py-12 lg:px-14 lg:py-16 xl:px-16 xl:py-20">
+    <section className="relative flex flex-col bg-white dark:bg-black px-6 py-8 gap-10 opacity-100 md:px-10 md:py-12 lg:px-14 lg:py-16 xl:px-16 xl:py-20">
       <ResponsiveBadge label="Contact Us" />
       <div className="flex flex-col lg:flex-row justify-between gap-10 opacity-100">
         {/* Left - Text */}
@@ -95,6 +96,12 @@ export default function ContactSection() {
           </div>
         </form> */}
       </div>
+      <Particles 
+        className="absolute inset-0 z-0"
+        quantity={100}
+        ease={80}
+        refresh
+      />
     </section>
   )
 }
