@@ -1,4 +1,3 @@
-import { CometCard } from "@/components/ui/comet-card";
 
 export default function AccelerateSection() {
   return (
@@ -6,7 +5,7 @@ export default function AccelerateSection() {
         py-8 px-6 md:py-12 md:px-10 lg:py-16 lg:px-14 xl:py-20 xl:px-16">
 
       {/* Wrap main content inside CometCard */}
-      <CometCard
+      <div
         className="mx-auto 
           flex flex-col items-center justify-center      /* centers children horizontally */
           w-full h-fit gap-8 rounded-[40px] px-6 py-6 
@@ -47,7 +46,7 @@ export default function AccelerateSection() {
             </a>
           </div>
         </div>
-      </CometCard>
+      </div>
     </section>
   );
 }
