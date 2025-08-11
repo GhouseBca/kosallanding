@@ -14,7 +14,7 @@ export default function ServiceCard({ imageSrc, title, description }: ServiceCar
 
     return (
         <div 
-            className={`bg-[#F8F8F8] dark:bg-[#161616] hover:bg-[#ECECED] dark:hover:bg-[#F8F8F8] dark:hover:text-[#110C22] 
+            className={`bg-[#F8F8F8] dark:bg-[#161616] hover:bg-[#ECECED] dark:hover:bg-[#0c0a09] dark:hover:text-[#110C22] 
                 flex flex-col shadow-sm
                 rounded-[32px] py-[24px] px-[32px] gap-4 md:h-fit
                 transition-all duration-300 ease-out ${isHovered ? 'transform -translate-y-2' : ''}`}
