@@ -79,9 +79,9 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="cursor-pointer">
           <img
-            src="/img/kosallogo 1.png"
+            src="/icons/logokosal.png"
             alt="Kosal Logo"
-            className="w-[28px] h-[28px] rotate-0 opacity-100 rounded-[8px]"
+            className="w-[32px] h-[32px] rotate-0 opacity-100 rounded-[8px]"
           />
         </a>
         <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="cursor-pointer">
