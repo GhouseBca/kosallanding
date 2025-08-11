@@ -2,7 +2,6 @@ import { ThemeProvider } from "@/providers/theme";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Inter } from "next/font/google";
-import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata = {
   title: "KOSAL.IO",
@@ -26,12 +25,10 @@ export default function RootLayout({
     <html lang="en" className={inter.className} suppressHydrationWarning>
      
         <body>
-          <ConvexClientProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
               {children}
             </ThemeProvider>
-          </ConvexClientProvider> 
         </body>
     </html>
   );

@@ -5,7 +5,7 @@ import { HexagonBackground } from "./animate-ui/backgrounds/hexagon";
 
 export default function Hero() {
   return (
-    <section id="hero" className="h-fit mt-17 grid place-items-center text-center relative
+    <section id="hero" className="h-fit mt-17 grid place-items-center text-center relative group
       px-[24px] py-[48px] gap-[32px]
       md:px-[40px] md:py-[64px]
       lg:px-[56px] lg:py-[80px]
