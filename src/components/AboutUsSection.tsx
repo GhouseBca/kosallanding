@@ -43,9 +43,9 @@ export default function AboutUsSection() {
                     {/* Right Text */}
                     <p
                         className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium 
-      text-[12px] leading-[16px] md:text-[14px] md:leading-[24px] 
-      lg:text-[16px] lg:leading-[24px] xl:text-[18px] xl:leading-[24px]
-      w-full lg:w-1/2"
+                        text-[12px] leading-[16px] md:text-[14px] md:leading-[24px] 
+                        lg:text-[16px] lg:leading-[24px] xl:text-[18px] xl:leading-[24px]
+                        w-full lg:w-1/2"
                     >
                         Kosal.io is a technology-driven company that builds tailored software solutions to help businesses streamline their operations and scale with confidence.
                         <span className="block mt-4">

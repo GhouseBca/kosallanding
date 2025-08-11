@@ -80,7 +80,16 @@
   0% {
     background-position: top center;}
   100% {
-    background-position: bottom center;}}}
+    background-position: bottom center;}}
+  @keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;}
+  70% {
+    opacity: 1;}
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;}}}
 
 :root {
   --radius: 0.625rem;

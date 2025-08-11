@@ -1,12 +1,24 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import ResponsiveBadge from './ResponsiveBadge';
-import StickyHorizontalCards from './StickyHorizontalCards';
+import StickyHorizontalCards, { StickyHorizontalCardsRef } from './StickyHorizontalCards';
 
-const tabs = ['Bites', 'LinkedIn AI Agent', 'Retailer’s CRM', 'Collection App'];
+const tabs = ['Bites', 'LinkedIn AI Agent', 'Retailer\'s CRM', 'Collection App'];
 
 export default function SolutionsSection() {
   const [activeTab, setActiveTab] = useState('Bites');
+  const stickyCardsRef = useRef<StickyHorizontalCardsRef>(null);
+
+  const handleTabClick = (tab: string) => {
+    const tabIndex = tabs.indexOf(tab);
+    if (tabIndex !== -1) {
+      // Update the active tab immediately for visual feedback
+      setActiveTab(tab);
+      
+      // Scroll to the specific card
+      stickyCardsRef.current?.scrollToCard(tabIndex);
+    }
+  };
 
   return (
     <section id='products' className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616]
@@ -24,14 +36,19 @@ export default function SolutionsSection() {
         <span className="text-[#0A6CDB] dark:text-[#5FA6F3]">Solutions </span> for Every <br /> Business Need.
       </h2>
 
-      {/* StickyHorizontalCards with onFocusChange callback */}
-      <StickyHorizontalCards onFocusChange={(focusedIndex) => {
-        setActiveTab(tabs[focusedIndex] || 'Bites');
-      }} />
+      
+      {/* StickyHorizontalCards with ref */}
+      <StickyHorizontalCards 
+        ref={stickyCardsRef}
+        focusedIndex={tabs.indexOf(activeTab)}
+        onFocusChange={(focusedIndex) => {
+          setActiveTab(tabs[focusedIndex] || 'Bites');
+        }} 
+      />
 
       {/* Tabs */}
-      <div className="hidden md:flex justify-center">
-        <div className="p-1 rounded-full bg-gray-100 dark:bg-gray-800 shadow-inner flex gap-2">
+      <div className="hidden md:flex justify-center px-4">
+        <div className="p-1 rounded-full bg-gray-100 dark:bg-gray-800 shadow-inner flex gap-1 md:gap-2 overflow-x-auto max-w-full">
           {tabs.map((tab) => {
             const isActive = activeTab === tab;
             const isBites = tab === 'Bites';
@@ -39,14 +56,14 @@ export default function SolutionsSection() {
             return (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`font-manrope font-bold text-[14px] leading-[24px] align-middle whitespace-nowrap transition duration-200 rounded-full
+                onClick={() => handleTabClick(tab)}
+                className={`font-manrope font-bold text-[12px] md:text-[14px] leading-[20px] md:leading-[24px] align-middle whitespace-nowrap transition duration-200 rounded-full flex-shrink-0
                   ${isActive
                     ? 'bg-white dark:bg-[#1a1a1a] shadow text-[#110C22] dark:text-white'
                     : 'text-[#110C22]/70 dark:text-gray-300 hover:text-[#110C22] dark:hover:text-white'}
                   ${isBites
-                    ? 'w-[59px] h-[40px] px-3 py-2'
-                    : 'w-[142px] h-[40px] px-3 py-2'}
+                    ? 'w-[50px] md:w-[59px] h-[36px] md:h-[40px] px-2 md:px-3 py-1.5 md:py-2'
+                    : 'w-[120px] md:w-[142px] h-[36px] md:h-[40px] px-2 md:px-3 py-1.5 md:py-2'}
                 `}
               >
                 {tab}
