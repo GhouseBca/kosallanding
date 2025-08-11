@@ -170,12 +170,34 @@ export function SmoothCursor({
       });
     };
 
+    // Hide system cursor globally
+    const originalBodyCursor = document.body.style.cursor;
     document.body.style.cursor = "none";
+    
+    // Hide cursor on interactive elements
+    const style = document.createElement('style');
+    style.id = 'smooth-cursor-styles';
+    style.textContent = `
+      button, a, [role="button"], input, textarea, select, 
+      [onclick], [onmousedown], [onmouseup], [tabindex]:not([tabindex="-1"]),
+      .cursor-pointer, [data-clickable] {
+        cursor: none !important;
+      }
+      * {
+        cursor: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+    
     window.addEventListener("mousemove", throttledMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", throttledMouseMove);
-      document.body.style.cursor = "auto";
+      document.body.style.cursor = originalBodyCursor;
+      const existingStyle = document.getElementById('smooth-cursor-styles');
+      if (existingStyle) {
+        document.head.removeChild(existingStyle);
+      }
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [cursorX, cursorY, rotation, scale]);

@@ -5,12 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, ChevronUp, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-// import Services from "@/components/services"; // Adjust path if needed
 import ProductDb from "@/components/ProductDB"; // Adjust path if needed
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  // const [showServices, setShowServices] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 
@@ -29,7 +27,7 @@ export default function Navbar() {
     }
   }, []);
 
-  // Mobile navigation click handler, properly typed and using available scope variables
+  // Mobile navigation click handler
   const handleMobileNavClick = (id: string) => (e: React.MouseEvent<HTMLDivElement>) => {
     setOpen(false);
     scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, id);
@@ -86,14 +84,12 @@ export default function Navbar() {
             className="w-[28px] h-[28px] rotate-0 opacity-100 rounded-[8px]"
           />
         </a>
-        {/* Light theme logo */}
         <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="cursor-pointer">
           <img
             src="/icons/Logo Text.svg"
             alt="Logo Text"
             className="block dark:hidden"
           />
-          {/* Dark theme logo */}
           <img
             src="/icons/DarkLogo Text.svg"
             alt="Logo Text Dark"
@@ -104,41 +100,39 @@ export default function Navbar() {
 
       {/* Desktop Nav */}
       <nav className="hidden xl:flex items-center text-sm font-manrope h-[24px] rotate-0 opacity-100 gap-[32px]">
-        {/* Products nav item with click-dropdown on ChevronDown / ChevronUp */}
+        {/* Products nav item with hover-dropdown */}
         <div
-          className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
-            text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope relative select-none"
-          onClick={() => setShowProducts(prev => !prev)}
-          role="button"
-          tabIndex={0}
-          aria-haspopup="true"
-          aria-expanded={showProducts}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              setShowProducts(prev => !prev);
-            }
-          }}
+          className="relative"
+          onMouseEnter={() => setShowProducts(true)}
+          onMouseLeave={() => setShowProducts(false)}
+          ref={dropdownRefDesktop}
         >
-          <span>Products</span>
-          <span className="relative">
-            {showProducts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-            {showProducts && (
-              <div
-                ref={dropdownRefDesktop}
-                className="fixed top-[64px] left-0 min-w-[380px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
-                style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
-                onClick={e => e.stopPropagation()}
-              >
-                <ProductDb />
-              </div>
-            )}
-          </span>
+          <div
+            className="flex items-center gap-1 cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] 
+              text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope select-none"
+            role="button"
+            tabIndex={0}
+            aria-haspopup="true"
+            aria-expanded={showProducts}
+          >
+            <span>Products</span>
+            <span className="relative">
+              {showProducts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            </span>
+          </div>
+          {showProducts && (
+            <div
+              className="absolute top-full left-0 mt-0 min-w-[600px] max-w-full bg-white dark:bg-[#171717] shadow-xl border border-gray-200 dark:border-[#292929] rounded-2xl p-4 flex flex-col gap-2 z-50"
+              style={{ maxHeight: "calc(100vh - 80px)", overflowY: "auto" }}
+            >
+              <ProductDb />
+            </div>
+          )}
         </div>
 
         {/* Other nav items */}
         <a
-          href="#"
+          href="#careers"
           onClick={(e) => scrollToSection(e, 'careers')}
           className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
@@ -156,7 +150,7 @@ export default function Navbar() {
           onClick={(e) => scrollToSection(e, 'wck')}
           className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope"
         >
-          Why Chose Kosal
+          Why Choose Kosal
         </a>
         <a
           href="#ladder"
@@ -173,7 +167,6 @@ export default function Navbar() {
         >
           Blogs
         </a>
-
       </nav>
 
       {/* Desktop Right */}
@@ -237,8 +230,8 @@ export default function Navbar() {
               </div>
 
               {/* Mobile nav items */}
-              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Careers</div>
-              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Why Chose Kosal</div>
+              <div onClick={handleMobileNavClick('careers')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Careers</div>
+              <div onClick={handleMobileNavClick('wck')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Why Choose Kosal</div>
               <div onClick={handleMobileNavClick('ladder')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">Ladder Academy</div>
               <div onClick={handleMobileNavClick('about')} className="cursor-pointer font-medium text-[14px] leading-[24px] tracking-[0%] text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope">About Us</div>
               <a
