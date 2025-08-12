@@ -5,7 +5,7 @@ import { BlurFade } from './magicui/blur-fade'
 
 export default function LadderAcademySection() {
   return (
-    <section id='ladder' className="bg-white dark:bg-[#0C0C0C] text-gray-800 dark:text-gray-100 flex flex-col items-center
+    <section id='ladder' className="bg-white dark:bg-gradient-to-b dark:from-[#0C0C0C] dark:to-[#161616] text-gray-800 dark:text-gray-100 flex flex-col items-center
               w-full h-fit gap-6 p-8 md:gap-10 md:px-10 md:py-12 
               lg:px-14 lg:py-16 xl:px-16 xl:py-20">
       

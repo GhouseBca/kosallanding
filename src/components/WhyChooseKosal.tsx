@@ -5,7 +5,7 @@ import ResponsiveBadge from "./ResponsiveBadge"
 
 export default function WhyChooseKosal() {
     return (
-        <section id='wck' className="w-full h-fit bg-white dark:bg-black 
+        <section id='wck' className="w-full h-fit bg-white  dark:bg-gradient-to-b dark:from-black dark:to-[#0C0C0C]
                     py-8 px-6 
                     md:py-12 md:px-10 md:gap-10 
                     lg:py-16 lg:px-14  

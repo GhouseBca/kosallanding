@@ -8,12 +8,10 @@ import AccelerateSection from "@/components/CTACard";
 import ContactSection from "@/components/ContactSection";
 import Fotter from "@/components/Fotter";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
-import { MeshGradientComponent } from "@/components/mesh-gradient";
 
 export default function Home() {
   return (
        <div>
-
           <Hero/>
           <AboutUsSection />
           <SolutionsSection />

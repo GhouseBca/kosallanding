@@ -22,7 +22,8 @@ export default function Footer() {
     }
   }, []);
   return (
-    <footer className="w-full h-fit bg-[#F3F3F4] dark:bg-[#1A1A1A] px-6 py-8 gap-[56px] md:px-10 md:py-12 md:gap-[64px] 
+    <footer className="w-full h-fit bg-gradient-to-b from-white to-[#F3F3F4] 
+    dark:bg-gradient-to-b dark:from-black dark:to-[#161616] px-6 py-8 gap-[56px] md:px-10 md:py-12 md:gap-[64px] 
               lg:px-14 lg:py-16 lg:gap-[80px] xl:px-16 xl:py-20 flex flex-col">
 
       {/* Top Grid */}

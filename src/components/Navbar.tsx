@@ -78,12 +78,21 @@ export default function Navbar() {
     >
       <div className="flex items-center gap-4">
         <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="cursor-pointer">
+          {/* Show only in dark mode */}
           <img
             src="/icons/logokosal.png"
             alt="Kosal Logo"
-            className="w-[32px] h-[32px] rotate-0 opacity-100 rounded-[8px]"
+            className="w-[32px] h-[32px] rotate-0 opacity-100 rounded-[8px] hidden dark:block"
+          />
+          
+          {/* Show only in light mode */}
+          <img
+            src="/img/kosallogo 1.png"
+            alt="Kosal Logo"
+            className="w-[32px] h-[32px] rotate-0 opacity-100 rounded-[8px] block dark:hidden"
           />
         </a>
+
         <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="cursor-pointer">
           <img
             src="/icons/Logo Text.svg"

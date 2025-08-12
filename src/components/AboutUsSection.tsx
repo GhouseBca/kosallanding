@@ -10,12 +10,13 @@ export default function AboutUsSection() {
             sm:px-[40px] sm:py-[48px] 
             md:px-[56px] md:py-[64px] 
             lg:px-[64px] lg:py-[80px]
-            bg-white dark:bg-black text-black dark:text-white
+            bg-white 
+            dark:bg-gradient-to-b dark:from-black dark:to-[#161616] text-black dark:text-white
             opacity-100 flex flex-col gap-[32px]">
 
             <div className="flex flex-col gap-5 opacity-100">
                 <ResponsiveBadge label="About Us" />
-
+ 
                 {/* Content Area */}
                 <div className="w-full h-fit flex flex-col lg:flex-row gap-[24px] opacity-100">
                     {/* Left Text Block */}

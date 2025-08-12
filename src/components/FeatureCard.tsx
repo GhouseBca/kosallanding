@@ -15,7 +15,7 @@ export const FeatureCard = ({ title, description, iconSrc, link = '#' }: Feature
 
   return (
     <div 
-      className={`bg-[#F8F8F8] dark:bg-[#161616] hover:bg-[#ECECED] dark:hover:bg-[#ECECED] w-full h-fit gap-4 rounded-[32px] p-6 sm:px-8 sm:py-6 md:px-8 md:py-6 lg:px-8 lg:py-6 shadow-sm transition-all duration-300 ease-out ${isHovered ? 'transform -translate-y-2' : 'opacity-100 scale-100'}`}
+      className={`bg-[#F8F8F8] dark:bg-[#161616] hover:bg-[#ECECED] dark:hover:bg-[#0c0a09] w-full h-fit gap-4 rounded-[32px] p-6 sm:px-8 sm:py-6 md:px-8 md:py-6 lg:px-8 lg:py-6 shadow-sm transition-all duration-300 ease-out ${isHovered ? 'transform -translate-y-2' : 'opacity-100 scale-100'}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{ opacity: 1, transform: 'scale(1)' }}

@@ -21,7 +21,8 @@ export default function SolutionsSection() {
   };
 
   return (
-    <section id='products' className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616]
+    <section id='products' className="w-full h-fit bg-gradient-to-b from-white to-[#F8F8F8]
+     dark:bg-gradient-to-b dark:from-[#161616] dark:to-black
       flex flex-col items-center gap-[24px] py-[32px]
       md:gap-[32px] md:py-[48px]
       lg:gap-[40px] lg:py-[64px]
