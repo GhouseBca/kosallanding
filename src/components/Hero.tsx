@@ -44,8 +44,10 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex justify-center items-center gap-4 w-fit h-fit">
-          <Button variant="outline" className="gap-3 opacity-100 p-4 rounded-4 border align-middle font-manrope font-semibold text-[14px] leading-[24px] sm:text-[16px] md:text-[18px] lg:text-[18px]">
-            Schedule a Demo
+        <Button variant="outline" className="flex gap-2 opacity-100 font-manrope font-semibold text-[14px] leading-[24px] align-middle
+                          rounded-[12px] border-[1px] bg-[#FFFFFF] dark:bg-[#0C0C0C] border-[#F3F3F4] text-[#4F4B5C] dark:text-[#C2C2C2]
+                          px-3 py-2 sm:gap-2.5 sm:rounded-[16px] sm:text-[16px] sm:px-4 sm:py-3 md:text-[18px] md:px-4 md:py-4 lg:gap-3">
+         Schedule a Demo
           </Button>
           <Button className="bg-[#0A6CDB] dark:text-white hover:bg-[#0A6CDB]/90 rounded-4 p-4 gap-3 align-middle font-manrope font-semibold text-[14px] leading-[24px] sm:text-[16px] md:text-[18px] lg:text-[18px]">
             Contact Us

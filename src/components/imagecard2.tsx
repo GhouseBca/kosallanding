@@ -8,18 +8,15 @@ export default function ImageCard2() {
             rounded-[40px] shadow-md flex flex-col items-center justify-center px-[32px] py-[48px] gap-[32px]
             md:h-[477px] lg:h-[511px] xl:h-fit"
           >
-      <img
-        src="/img/Product 1.png"
-        alt="Product 2"
-        className="w-[282px] h-[155px] opacity-100 object-cover
-          md:w-[647px] md:h-[355px]
-          lg:w-[663px] lg:h-[363px]
-          xl:w-[735px] xl:h-[403px]"
+          <img
+            src="/icons/KisformsN.svg"
+            alt="Product 2"
+            className="w-full h-full object-cover"
 
-      />
-      <p className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-medium text-[18px] leading-[24px] text-center">
-        Description for Product 2.
-      </p>
+          />
+          <p className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-medium text-[18px] leading-[24px] text-center">
+              <span className='font-bold'>Form House:</span>Build unlimited AI-powered forms with ease and efficiency.
+          </p>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { BlurFade } from './magicui/blur-fade'
 const services = [
   {
     title: 'Web Development',
-    description: 'Modern, responsive web applications built with React, Next.js, and other cutting-edge technologies.',
+    description: 'Responsive web applications built with React, Next.js & other cutting-edge technologies.',
     imageSrc: '/icons/Group.svg',
   },
   {

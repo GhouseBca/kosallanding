@@ -1,26 +1,21 @@
 // components/imagecard1.tsx
 import React from 'react'
 
-// Example: components/imagecard1.tsx
 export default function ImageCard1() {
   return (
     <div className="h-[265.34px] flex-shrink-0 bg-white dark:bg-[#0C0C0C] rounded-[40px] shadow-md flex flex-col items-center justify-center 
           px-[32px] py-[48px] gap-[32px] md:h-[477px] lg:h-[511px] xl:h-fit"
         >
-      <img
-        src="/img/Product 1.png"
-        alt="Product 1"
-        className="w-[282px] h-[155px] opacity-100 object-cover
-          md:w-[647px] md:h-[355px]
-          lg:w-[663px] lg:h-[363px]
-          xl:w-[735px] xl:h-[403px]"
-
-      />
+      <div className="w-full h-[155px] md:h-[355px] lg:h-[363px] xl:h-[403px] overflow-hidden rounded-[28px]">
+        <img
+          src="/icons/BitesN.svg"
+          alt="Product 1"
+          className="w-full h-full object-cover"
+        />
+      </div>
       <p className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-medium text-[18px] leading-[24px] text-center">
-        Description for Product 1.
+        <span className='font-bold'>Bites:</span>Streamline your restaurant operations with powerful management tools.
       </p>
     </div>
   );
 }
-
-
