@@ -41,8 +41,8 @@ export default function OurServices() {
   return (
     <section
       id="services"
-      className="bg-white 
-      dark:bg-black flex flex-col py-8 px-6 gap-6 
+      className="bg-gradient-to-b from-[#99f6e4] to-white
+      dark:bg-gradient-to-b dark:from-black dark:to-black flex flex-col py-8 px-6 gap-6 
         md:py-12 md:px-10 md:gap-10 lg:py-16 lg:px-14 xl:py-20 xl:px-16"
     >
       {/* Badge */}
