@@ -1,7 +1,9 @@
 'use client';
 import React from 'react';
 import ResponsiveBadge from './ResponsiveBadge';
-import { StickyScroll } from './ui/sticky-scroll-reveal';
+import CardPreview from './CardPreview';
+// import { AnimatedTestimonials } from './ui/animated-testimonials';
+// import { StickyScroll } from './ui/sticky-scroll-reveal';
 // import StickyHorizontalCards, { StickyHorizontalCardsRef } from './StickyHorizontalCards';
 // import { useState, useRef } from 'react';
 
@@ -22,67 +24,121 @@ export default function SolutionsSection() {
   //   }
   // };
 
-  const content = [
+  // const content = [
+  //   {
+  //     title: "Bites",
+  //     description:"Streamline your restaurant operations with powerful management tools.",
+  //     content: 
+  //         <div className="flex h-full w-full items-center justify-center text-white">
+  //           <img
+  //             src="/icons/BitesN.svg"
+  //             width={300}
+  //             height={300}
+  //             className="h-full w-full"
+  //             alt="linear board demo"
+  //           />
+  //         </div>
+  //   },
+  //   {
+  //     title: "Form House",
+  //     description:"Build unlimited AI-powered forms with ease and efficiency.",
+  //     content: 
+  //         <div className="flex h-full w-full items-center justify-center text-white">
+  //           <img
+  //             src="/icons/KisformsN.svg"
+  //             width={300}
+  //             height={300}
+  //             className="h-full w-full"
+  //             alt="linear board demo"
+  //           />
+  //         </div>
+  //   },
+  //   {
+  //     title: "Postmate",
+  //     description:"Create engaging content effortlessly with AI-driven automation.",
+  //     content: 
+  //         <div className="flex h-full w-full items-center justify-center text-white">
+  //           <img
+  //             src="/icons/PostmateN.svg"
+  //             width={300}
+  //             height={300}
+  //             className="h-full w-full"
+  //             alt="linear board demo"
+  //           />
+  //         </div>
+  //   },
+  //   {
+  //     title: "Screenly",
+  //     description:"Upload, schedule, and control content across TVs, kiosks, tablets — all in one.",
+  //     content: 
+  //         <div className="flex h-full w-full items-center justify-center text-white">
+  //           <img
+  //             src="/icons/ScreenlyN.svg"
+  //             width={300}
+  //             height={300}
+  //             className="h-full w-full"
+  //             alt="Screenly demo"
+  //           />
+  //         </div>
+  //   }
+  // ];
+
+  // const testimonials = [
+  //   {
+  //     quote: "Streamline your restaurant operations with powerful management tools.",
+  //     name: "Bites",
+  //     designation: "Bites Software",
+  //     src: "/icons/BitesN.svg",
+  //   },
+  //   {
+  //     quote: "Build unlimited AI-powered forms with ease and efficiency.",
+  //     name: "Fomly",
+  //     designation: "We Called Kiss Form",
+  //     src: "/icons/KisformsN.svg",
+  //   },
+  //   {
+  //     quote: "Create engaging content effortlessly with AI-driven automation.",
+  //     name: "Postmate",
+  //     designation: "Postmate a linkedin AI",
+  //     src: "/icons/PostmateN.svg",
+  //   },
+  //   {
+  //     quote: "Upload, schedule, and control content across TVs, kiosks, tablets — all in one.",
+  //     name: "Screenly",
+  //     designation: "Screenly works Good",
+  //     src: "/icons/ScreenlyN.svg",
+  //   },
+  // ];
+  
+  const cards = [
     {
+      id: 1,
       title: "Bites",
-      description:"Streamline your restaurant operations with powerful management tools.",
-      content: 
-          <div className="flex h-full w-full items-center justify-center text-white">
-            <img
-              src="/icons/BitesN.svg"
-              width={300}
-              height={300}
-              className="h-full w-full"
-              alt="linear board demo"
-            />
-          </div>
+      description: "Streamline your restaurant operations with powerful management tools.",
+      image: "/icons/BitesN.svg",
     },
     {
+      id: 2,
       title: "Form House",
-      description:"Build unlimited AI-powered forms with ease and efficiency.",
-      content: 
-          <div className="flex h-full w-full items-center justify-center text-white">
-            <img
-              src="/icons/KisformsN.svg"
-              width={300}
-              height={300}
-              className="h-full w-full"
-              alt="linear board demo"
-            />
-          </div>
+      description: "Build unlimited AI-powered forms with ease and efficiency.",
+      image: "/icons/KisformsN.svg",
     },
     {
+      id: 3,
       title: "Postmate",
-      description:"Create engaging content effortlessly with AI-driven automation.",
-      content: 
-          <div className="flex h-full w-full items-center justify-center text-white">
-            <img
-              src="/icons/PostmateN.svg"
-              width={300}
-              height={300}
-              className="h-full w-full"
-              alt="linear board demo"
-            />
-          </div>
+      description: "Create engaging content effortlessly with AI-driven automation.",
+      image: "/icons/PostmateN.svg",
     },
     {
+      id: 4,
       title: "Screenly",
-      description:"Upload, schedule, and control content across TVs, kiosks, tablets — all in one.",
-      content: 
-          <div className="flex h-full w-full items-center justify-center text-white">
-            <img
-              src="/icons/ScreenlyN.svg"
-              width={300}
-              height={300}
-              className="h-full w-full"
-              alt="Screenly demo"
-            />
-          </div>
-    }
+      description: "Upload, schedule, and control content across TVs, kiosks, tablets — all in one.",
+      image: "/icons/ScreenlyN.svg",
+    },
   ];
 
   return (
-    <section id='products' className="w-full h-fit bg-[#99f6e4] dark:bg-black
+    <section id='products' className="w-full h-fit bg-[#F8F8F8] dark:bg-black
       flex flex-col items-center gap-[24px] py-[32px]
       md:gap-[32px] md:py-[48px]
       lg:gap-[40px] lg:py-[64px]
@@ -136,10 +192,13 @@ export default function SolutionsSection() {
 
       {/* Description */}
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <StickyScroll content={content} />
-      </div>
+      </div> */}
 
+      {/* <AnimatedTestimonials testimonials={testimonials} /> */}
+
+      <CardPreview cards={cards} />
 
       <p className="text-center max-w-2xl text-sm lg:text-base text-[#110C22]/80 dark:text-gray-400">
         Manage every aspect of your restaurant — from digital menus and real-time kitchen displays

@@ -10,7 +10,7 @@ export default function AboutUsSection() {
             sm:px-[40px] sm:py-[48px] 
             md:px-[56px] md:py-[64px] 
             lg:px-[64px] lg:py-[80px]
-            bg-gradient-to-b from-[white] to-[#99f6e4]
+            bg-white
             dark:bg-gradient-to-b dark:from-[#161616] dark:to-black text-black dark:text-white
             opacity-100 flex flex-col gap-[32px]">
 

@@ -48,17 +48,17 @@ export default function WhyChooseKosal() {
 
                     {/* Card 2 */}
                     <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616] flex flex-row-reverse justify-between
-                        h-[160px] p-6 md:flex-col md:h-[310.5px] md:px-8 md:py-6 group">
+                        h-[160px] p-4 md:flex-col md:h-[310.5px] md:px-8 md:py-6 group">
                         <img
                             src="/img/rocket.png"
                             alt="Fast Onboarding"
-                            className="object-contain w-auto h-[82px] sm:absolute md:top-6 md:right-6 md:h-[157px] xl:static transition-transform duration-300 group-hover:scale-110"
+                            className="object-contain w-auto h-[102px] sm:absolute md:top-6 md:right-6 md:h-[157px] xl:static transition-transform duration-300 group-hover:scale-110"
                         />
                         <div className="flex flex-col text-black dark:text-white w-full h-fit gap-2 md:h-[104px] max-w-full justify-center md:mt-auto">
                             <TypingAnimation className="font-semibold text-[20px] text-[#110C22] dark:text-white leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px]">
                                 Fast Onboarding
                             </TypingAnimation>
-                            <p className="font-medium text-[18px] leading-[24px] tracking-normal text-[#4F4B5C] dark:text-white">
+                            <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal">
                                 Get matched with the right engineers in days, not weeks.
                             </p>
                         </div>
@@ -66,7 +66,7 @@ export default function WhyChooseKosal() {
 
                     {/* Card 3 */}
                     <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616]
-                        flex flex-row justify-between gap-4 p-6 md:flex-col md:px-8 md:py-6 h-[136px] md:h-[310.5px] group">
+                        flex flex-row justify-between gap-1 p-4 md:flex-col md:px-8 md:py-6 h-[136px] md:h-[310.5px] group">
                         <img
                             src="/img/chat.png"
                             alt="Flexible Engagement"
@@ -74,10 +74,10 @@ export default function WhyChooseKosal() {
                         />
                         <div className="flex flex-col z-10 mt-auto max-w-[293px] text-black dark:text-white justify-center sm:mt-auto">
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold
-                                text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px]">
+                                text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px] text-nowrap">
                                 Flexible Engagement
                             </TypingAnimation>
-                            <p className="font-medium text-[18px] leading-[24px] tracking-normal text-[#4F4B5C] dark:text-white">
+                            <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal">
                                 From short-term to long-term — we scale with you.
                             </p>
                         </div>
@@ -92,10 +92,10 @@ export default function WhyChooseKosal() {
                             className="object-contain w-[106px] h-[82px] md:absolute md:top-6 md:right-6 md:w-[185px] md:h-[148px] xl:static transition-transform duration-300 group-hover:scale-110"
                         />
                         <div className="flex flex-col mt-auto max-w-[293px] text-black dark:text-white justify-center md:mt-auto">
-                            <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px]">
+                            <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px] text-nowrap">
                                 Quality Guaranteed
                             </TypingAnimation>
-                            <p className="font-medium text-[18px] leading-[24px] tracking-normal text-[#4F4B5C] dark:text-white">
+                            <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal">
                                 Quality you can trust, support you can count on.
                             </p>
                         </div>
@@ -111,7 +111,7 @@ export default function WhyChooseKosal() {
                     <img
                         src="/img/vetted.png"
                         alt="Vetted Engineers"
-                        className="opacity-100 w-[470px] h-[485px] transition-transform duration-300 group-hover:scale-110"
+                        className="opacity-100 w-[570px] h-[485px] transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className="text-black dark:text-white w-full h-fit flex flex-col gap-2 mt-auto opacity-100">
                         <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold tracking-[-0.01em] text-[26px] leading-[40px] h-[40px] opacity-100">
@@ -138,7 +138,7 @@ export default function WhyChooseKosal() {
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold tracking-[-0.01em] text-[26px] leading-[40px] h-[40px] opacity-100">
                                 Fast Onboarding
                             </TypingAnimation>
-                            <p className="font-medium text-[18px] leading-[24px] tracking-normal text-[#4F4B5C] dark:text-white h-[48px]">
+                            <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal h-[48px] opacity-100">
                                 Get matched with the right engineers in days, not weeks.
                             </p>
                         </div>
@@ -156,7 +156,7 @@ export default function WhyChooseKosal() {
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold tracking-[-0.01em] text-[26px] leading-[40px] h-[40px] opacity-100">
                                 Flexible Engagement
                             </TypingAnimation>
-                            <p className="font-medium text-[18px] leading-[24px] tracking-normal text-[#4F4B5C] dark:text-white h-[48px]">
+                            <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal h-[48px] opacity-100">
                                 From short-term to long-term — we scale with you.
                             </p>
                         </div>
@@ -174,7 +174,7 @@ export default function WhyChooseKosal() {
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold tracking-[-0.01em] text-[26px] leading-[40px] h-[40px] opacity-100">
                                 Quality Guaranteed
                             </TypingAnimation>
-                            <p className="font-medium text-[18px] leading-[24px] tracking-normal text-[#4F4B5C] dark:text-white h-[48px]">
+                            <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal h-[48px] opacity-100">
                                 Quality you can trust, support you can count on.
                             </p>
                         </div>

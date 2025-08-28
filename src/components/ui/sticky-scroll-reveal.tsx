@@ -48,6 +48,7 @@ export const StickyScroll = ({
     theme === "dark"
       ? ["#000000", "#000000", "#000000"]
       : ["#99f6e4", "#99f6e4", "#99f6e4"];
+
   const linearGradients =
     theme === "dark"
       ? [
@@ -60,11 +61,13 @@ export const StickyScroll = ({
           "linear-gradient(to bottom right, #99f6e4, #99f6e4)",
           "linear-gradient(to bottom right, #99f6e4, #99f6e4)",
         ];
+
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
+
   useEffect(() => {
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
   }, [activeCard, linearGradients]);
- 
+
   return (
     <motion.div
       animate={{
@@ -77,12 +80,15 @@ export const StickyScroll = ({
         msOverflowStyle: "none",
       }}
     >
+      {/* Left side text content */}
       <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
             <div
               key={item.title + index}
-              ref={(el) => { cardRefs.current[index] = el; }}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
               className="my-20"
             >
               <motion.h2
@@ -110,10 +116,12 @@ export const StickyScroll = ({
           <div className="h-40" />
         </div>
       </div>
+
+      {/* Right side sticky image */}
       <div
         style={{ background: backgroundGradient }}
         className={cn(
-          "sticky top-10 hidden h-[28rem] w-[35rem] overflow-hidden rounded-xl lg:block",
+          "sticky top-10 hidden h-[36rem] w-[45rem] overflow-hidden rounded-xl lg:block", // ✅ Increased size
           theme === "dark" ? "bg-black" : "bg-white",
           contentClassName
         )}
@@ -124,10 +132,11 @@ export const StickyScroll = ({
                 content[activeCard].content as React.ReactElement<{ className?: string }>,
                 {
                   className: cn(
-                    "h-full w-full object-cover",
-                    (content[activeCard].content as React.ReactElement<{ className?: string }>).props?.className,
+                    "h-full w-full object-contain", // ✅ Changed from cover → contain
+                    (content[activeCard].content as React.ReactElement<{ className?: string }>)
+                      .props?.className
                   ),
-                },
+                }
               )
             : content[activeCard]?.content ?? null}
         </div>
