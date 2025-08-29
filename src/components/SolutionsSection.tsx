@@ -199,11 +199,7 @@ export default function SolutionsSection() {
       {/* <AnimatedTestimonials testimonials={testimonials} /> */}
 
       <CardPreview cards={cards} />
-
-      <p className="text-center max-w-2xl text-sm lg:text-base text-[#110C22]/80 dark:text-gray-400">
-        Manage every aspect of your restaurant — from digital menus and real-time kitchen displays
-        to seamless billing, analytics, and POS integration.
-      </p>
+      
     </section>
   )
 }
