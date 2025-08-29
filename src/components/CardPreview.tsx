@@ -14,7 +14,9 @@ type CardPreviewProps = {
 };
 
 export default function CardPreview({ cards }: CardPreviewProps) {
-    const [activeImage, setActiveImage] = useState<string | null>(null);
+    // Default to the first card's image
+    const [activeImage, setActiveImage] = useState<string>(cards[0]?.image || "");
+    const [activeCard, setActiveCard] = useState<number>(cards[0]?.id || -1);
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row gap-6 p-6 bg-[#F8F8F8] dark:bg-black">
@@ -23,10 +25,19 @@ export default function CardPreview({ cards }: CardPreviewProps) {
                 {cards.map((card, index) => (
                     <Fragment key={card.id}>
                         <div
-                            className="p-4 rounded-xl cursor-pointer transition   
-                            hover:bg-white dark:hover:bg-[#2A2A2A]"
-                            onMouseEnter={() => setActiveImage(card.image)}
-                            onClick={() => setActiveImage(card.image)}
+                            className={`p-4 rounded-xl cursor-pointer transition 
+                            ${activeCard === card.id
+                                    ? "bg-white dark:bg-[#2A2A2A]"
+                                    : "hover:bg-white dark:hover:bg-[#2A2A2A]"
+                                }`}
+                            onMouseEnter={() => {
+                                setActiveImage(card.image);
+                                setActiveCard(card.id);
+                            }}
+                            onClick={() => {
+                                setActiveImage(card.image);
+                                setActiveCard(card.id);
+                            }}
                         >
                             <h2 className="text-xl font-semibold text-[#110C22] dark:text-white">
                                 {card.title}
@@ -45,12 +56,12 @@ export default function CardPreview({ cards }: CardPreviewProps) {
             </div>
 
             {/* Right side - image preview */}
-            <div className="md:w-4/6 flex items-center justify-center h-full rounded-xl pt-4  bg-white dark:bg-[#0C0C0C]">
+            <div className="md:w-4/6 flex items-center justify-center h-full rounded-xl pt-4 bg-white dark:bg-[#0C0C0C]">
                 {activeImage ? (
                     <img
                         src={activeImage}
                         alt="Preview"
-                        className="w-full h-full object-contain rounded-lg p-4"
+                        className="w-full h-auto max-h-[500px] object-contain rounded-lg p-4"
                     />
                 ) : (
                     <p className="text-gray-400">Hover or click a card to see image</p>
