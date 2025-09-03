@@ -19,9 +19,9 @@ export default function CardPreview({ cards }: CardPreviewProps) {
     const [activeCard, setActiveCard] = useState<number>(cards[0]?.id || -1);
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row gap-6 p-6 bg-[#F8F8F8] dark:bg-black">
+        <div className="min-h-fit flex flex-col lg:flex-row gap-6 p-6 bg-[#F8F8F8] dark:bg-black">
             {/* Left side - list of cards */}
-            <div className="md:w-2/6 flex flex-col h-full">
+            <div className="lg:w-2/6 flex flex-col h-full">
                 {cards.map((card, index) => (
                     <Fragment key={card.id}>
                         <div
@@ -56,12 +56,12 @@ export default function CardPreview({ cards }: CardPreviewProps) {
             </div>
 
             {/* Right side - image preview */}
-            <div className="md:w-4/6 flex items-center justify-center h-full rounded-xl pt-4 bg-white dark:bg-[#0C0C0C]">
+            <div className="lg:w-4/6 flex items-center justify-center h-full rounded-xl pt-4 bg-white dark:bg-[#0C0C0C]">
                 {activeImage ? (
                     <img
                         src={activeImage}
                         alt="Preview"
-                        className="w-full h-auto max-h-[500px] object-contain rounded-lg p-4"
+                        className="w-full h-auto max-h-[500px] object-contain rounded-lg px-4 py-6"
                     />
                 ) : (
                     <p className="text-gray-400">Hover or click a card to see image</p>
