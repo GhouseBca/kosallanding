@@ -150,7 +150,7 @@ export default function WhyChooseKosal() {
                             alt="Flexible Engagement"
                             className="absolute right-0 top-0 object-contain w-[152px] h-[152px] opacity-100 transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="flex flex-col z-10 mt-auto max-w-[293px] text-black dark:text-white">
+                        <div className="flex flex-col z-10 mt-auto gap-4 max-w-[293px] text-black dark:text-white">
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold tracking-[-0.01em] text-[26px] leading-[40px] h-[40px] opacity-100">
                                 Flexible Engagement
                             </TypingAnimation>
@@ -168,7 +168,7 @@ export default function WhyChooseKosal() {
                             alt="Quality Guaranteed"
                             className="absolute right-0 sm:top-0 md:top-0 lg:top-0 object-contain w-[106px] h-[82px] sm:w-[185px] sm:h-[148px] lg:w-[152px] lg:h-[152px] opacity-100 transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="flex flex-col z-10 mt-auto max-w-[293px] text-black dark:text-white">
+                        <div className="flex flex-col z-10 mt-auto gap-4 max-w-[293px] text-black dark:text-white">
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold tracking-[-0.01em] text-[26px] leading-[40px] h-[40px] opacity-100">
                                 Quality Guaranteed
                             </TypingAnimation>
