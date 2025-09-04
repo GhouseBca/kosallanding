@@ -7,9 +7,9 @@ import StatsGrid from './StatsGrid'; // Adjust the path based on your folder str
 export default function AboutUsSection() {
     return (
         <section id='about' className="px-[24px] py-[32px] 
-            sm:px-[40px] sm:py-[48px] 
-            md:px-[56px] md:py-[64px] 
-            lg:px-[64px] lg:py-[80px]
+            md:px-[40px] md:py-[48px] 
+            lg:px-[56px] lg:py-[64px] 
+            xl:px-[64px] xl:py-[80px]
             bg-white dark:bg-black text-black dark:text-white
             opacity-100 flex flex-col gap-[32px]">
 

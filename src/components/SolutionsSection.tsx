@@ -33,10 +33,10 @@ export default function SolutionsSection() {
 
   return (
     <section id='products' className="w-full h-fit bg-[#F8F8F8] dark:bg-black
-      flex flex-col items-center gap-[24px] py-[32px]
-      md:gap-[32px] md:py-[48px]
-      lg:gap-[40px] lg:py-[64px]
-      xl:py-[80px]">
+      flex flex-col items-center gap-[24px] px-[24px] py-[32px] 
+            md:px-[40px] md:py-[48px] 
+            lg:px-[56px] lg:py-[64px] 
+            xl:px-[64px] xl:py-[80px]">
       
       {/* Label */}
       <ResponsiveBadge label="Our Products" />

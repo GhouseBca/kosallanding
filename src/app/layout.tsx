@@ -14,6 +14,10 @@ export const metadata = {
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export default function RootLayout({
@@ -23,13 +27,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-     
-        <body>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <Navbar />
-              {children}
-            </ThemeProvider>
-        </body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
