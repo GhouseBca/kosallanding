@@ -10,7 +10,7 @@ type FeatureCardProps = {
   link?: string;
 };
 
-export const FeatureCard = ({ title, description, iconSrc, link = '#' }: FeatureCardProps) => {
+export const FeatureCard = ({ title, description, iconSrc}: FeatureCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -32,11 +32,10 @@ export const FeatureCard = ({ title, description, iconSrc, link = '#' }: Feature
 
       <h3 className="text-[20px] leading-[32px] tracking-[-0.01em] font-semibold font-inter text-[#110C22] dark:text-white mb-2">{title}</h3>
       <p className="text-[16px] leading-[24px] font-medium font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] mb-4">{description}</p>
-      <a
-        href={link}
-        className="text-[16px] leading-[24px] font-semibold font-manrope text-[#0084FF] dark:text-[#71BBFF] pb-[2px] flex items-center gap-[6px] hover:underline align-middle w-fit h-fit"
-      >
-        Learn more <img src="/icons/Arrow_link.svg" alt="arrow" className="w-5 h-5" />
+      <a href="#" className="group relative inline-flex items-center gap-[6px] text-primary text-sm font-medium pb-[2px] w-fit">
+        Learn more <img src="/icons/Arrow_link.svg" alt="arrow" className="w-4 h-4" />
+        {/* Underline that covers both text and icon */}
+        <span className="absolute left-0 right-0 bottom-0 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
       </a>
     </div>
   );

@@ -35,7 +35,7 @@ export default function WhyChooseKosal() {
                             alt="Vetted Engineers"
                             className="w-1/3 md:w-1/2 h-[82px]  opacity-100 sm:absolute md:top-6 md:right-6 md:h-[153px] xl:static transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="text-black dark:text-white w-full h-fit flex flex-col gap-2 mt-auto opacity-100">
+                        <div className="text-black dark:text-white w-full h-fit flex flex-col gap-2 md:mt-auto opacity-100">
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px]">
                                 Vetted Engineers
                             </TypingAnimation>
@@ -46,14 +46,14 @@ export default function WhyChooseKosal() {
                     </div>
 
                     {/* Card 2 */}
-                    <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616] flex flex-row-reverse justify-between
+                    <div className="relative rounded-[32px] max-w-[534px] bg-[#F8F8F8] dark:bg-[#161616] flex flex-row-reverse justify-between
                         h-[160px] p-4 md:flex-col gap-2 md:h-[310.5px] md:px-8 md:py-6 group">
                         <img
                             src="/img/rocket.png"
                             alt="Fast Onboarding"
                             className="w-1/3 md:w-1/2 object-contain h-[102px] sm:absolute md:top-6 md:right-6 md:h-[157px] xl:static transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="flex flex-col text-black dark:text-white w-full h-fit gap-2 md:h-[104px] max-w-full justify-center mt-auto">
+                        <div className="flex flex-col text-black dark:text-white w-full h-fit gap-2 md:h-[104px] max-w-full justify-center md:mt-auto">
                             <TypingAnimation className="font-semibold text-[20px] text-[#110C22] dark:text-white leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px]">
                                 Fast Onboarding
                             </TypingAnimation>
@@ -64,14 +64,14 @@ export default function WhyChooseKosal() {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616]
+                    <div className="relative rounded-[32px] max-w-[534px] bg-[#F8F8F8] dark:bg-[#161616]
                         flex flex-row justify-between gap-2 p-4 md:flex-col md:px-8 md:py-6 h-[136px] md:h-[310.5px] group">
                         <img
                             src="/img/chat.png"
                             alt="Flexible Engagement"
                             className="w-1/3 md:w-1/2 object-contain  h-[82px] md:absolute md:top-6 md:right-6 md:h-[148px] xl:static transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="flex flex-col z-10 mt-auto gap-2 max-w-[293px] text-black dark:text-white justify-center">
+                        <div className="flex flex-col z-10 md:mt-auto gap-2 max-w-[293px] text-black dark:text-white justify-center">
                             <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold
                                 text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px] text-nowrap">
                                 Flexible Engagement
@@ -83,15 +83,15 @@ export default function WhyChooseKosal() {
                     </div>
 
                     {/* Card 4 */}
-                    <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616] flex flex-row-reverse justify-between gap-2 p-6
+                    <div className="relative rounded-[32px] max-w-[534px] bg-[#F8F8F8] dark:bg-[#161616] flex flex-row-reverse justify-between gap-2 p-6
                         md:flex-col md:px-8 md:py-6 h-[136px] md:h-[310.5px] group">
                         <img
                             src="/img/thumb.png"
                             alt="Quality Guaranteed"
                             className="w-1/3 md:w-1/2 object-contain h-[82px] md:absolute md:top-6 md:right-6 md:h-[148px] xl:static transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="flex flex-col mt-auto gap-2 max-w-[293px] text-black dark:text-white justify-center">
-                            <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px] text-nowrap">
+                        <div className="flex flex-col md:mt-auto gap-2 max-w-[293px] text-black dark:text-white justify-center">
+                            <TypingAnimation className="text-[#110C22] dark:text-white font-inter font-semibold text-wrap text-[20px] leading-[32px] tracking-[-0.01em] md:text-[26px] md:leading-[40px] text-nowrap">
                                 Quality Guaranteed
                             </TypingAnimation>
                             <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[18px] leading-[24px] tracking-normal">
@@ -104,7 +104,7 @@ export default function WhyChooseKosal() {
 
             <div className="hidden xl:flex flex-row gap-8 h-fit">
                 {/* Left Side: Card 1 */}
-                <div className="w-full h-fit max-w-[534px] rounded-[32px] bg-[#F8F8F8] dark:bg-[#161616] 
+                <div className="w-full h-full max-w-[534px] rounded-[32px] bg-[#F8F8F8] dark:bg-[#161616] 
                         flex flex-col justify-between gap-4 px-6 py-6 group">
                     <img
                         src="/img/vetted.png"
@@ -122,11 +122,11 @@ export default function WhyChooseKosal() {
                 </div>
 
                 {/* Right Side: Cards 2, 3, 4 */}
-                <div className="grid grid-cols-2 grid-rows-2 gap-6 sm:gap-8 w-full">
+                <div className="grid grid-cols-2 grid-rows-2 gap-6 md:gap-8 w-full">
                     {/* Top: Card 2 */}
                     <div className="relative col-start-1 col-span-2 row-start-1 row-span-1
-                            rounded-[32px] bg-gray-50 dark:bg-[#161616] flex justify-between 
-                            h-[310.5px] px-8 py-6 opacity-100 group">
+                            rounded-[32px] bg-[#F8F8F8] dark:bg-[#161616] flex justify-between 
+                            h-full px-8 py-6 opacity-100 group">
                         <img
                             src="/img/rocket.png"
                             alt="Fast Onboarding"
@@ -143,8 +143,8 @@ export default function WhyChooseKosal() {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616] flex flex-col justify-between gap-4 p-6 col-start-1 row-start-2
-                            max-w-[534px] h-[310.5px] opacity-100 group">
+                    <div className="relative rounded-[32px] bg-[#F8F8F8] dark:bg-[#161616] flex flex-col justify-between gap-4 p-6 col-start-1 row-start-2
+                            max-w-[534px] h-full opacity-100 group">
                         <img
                             src="/img/chat.png"
                             alt="Flexible Engagement"
@@ -161,8 +161,8 @@ export default function WhyChooseKosal() {
                     </div>
 
                     {/* Card 4 */}
-                    <div className="relative rounded-[32px] bg-gray-50 dark:bg-[#161616] flex flex-col justify-between gap-4 p-6 col-start-2 row-start-2
-                            max-w-[534px] h-[310.5px] opacity-100 group">
+                    <div className="relative rounded-[32px] bg-[#F8F8F8] dark:bg-[#161616] flex flex-col justify-between gap-4 p-6 col-start-2 row-start-2
+                            max-w-[534px] h-full opacity-100 group">
                         <img
                             src="/img/thumb.png"
                             alt="Quality Guaranteed"

@@ -15,9 +15,9 @@ const StatsGridItem: React.FC<StatsGridItemProps> = ({ value, label }) => {
   const numericValue = Number(value.replace(/,/g, ''));
 
   return (
-    <div className="bg-[#F8F8F8] dark:bg-[#161616] opacity-100 
+    <div className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] 
         rounded-[24px] p-[16px] md:rounded-[32px] md:p-[24px] 
-        lg:py-[24px] lg:px-[28px] flex flex-col justify-center">
+        lg:p-[24px] xl:px-[32px] xl:py-[24px] flex flex-col justify-center">
 
       <NumberTicker
         value={numericValue}
@@ -29,7 +29,7 @@ const StatsGridItem: React.FC<StatsGridItemProps> = ({ value, label }) => {
         animation="blurInUp"
         by="character"
         once
-        className="font-manrope font-medium text-[14px] xl:text-[16px] text-nowrap leading-[24px] tracking-normal text-[#4F4B5C] dark:text-[#C2C2C2] mt-1">
+        className="font-manrope font-medium text-[12px] sm:text-[14px] xl:text-[16px] text-nowrap leading-[24px] tracking-normal text-[#4F4B5C] dark:text-[#C2C2C2] mt-1">
         {label}
       </TextAnimate>
     </div>

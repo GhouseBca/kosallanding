@@ -38,8 +38,15 @@ export default function ServiceCard({ imageSrc, title, description }: ServiceCar
                     <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium text-[16px] leading-[24px] opacity-100">{description}</p>
                 </div>
                 
-                <a href="#" className="text-primary text-sm font-medium hover:underline flex items-center gap-[6px] pb-[2px] w-fit h-fit opacity-100">
-                    Learn more <img src="/icons/Arrow_link.svg" alt="arrow" />
+                <a
+                    href="#"
+                    className="group relative inline-flex items-center gap-[6px] text-primary text-sm font-medium pb-[2px] w-fit"
+                    >
+                    Learn more
+                    <img src="/icons/Arrow_link.svg" alt="arrow" className="w-4 h-4" />
+
+                    {/* Underline that covers both text and icon */}
+                    <span className="absolute left-0 right-0 bottom-0 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
                 </a>
             </div>
         </div>

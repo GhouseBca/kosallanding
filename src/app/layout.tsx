@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@/providers/theme";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import { Inter } from "next/font/google";
 
 export const metadata = {
@@ -33,7 +32,6 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
           {children}
         </ThemeProvider>
       </body>

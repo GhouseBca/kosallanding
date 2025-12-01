@@ -1,177 +1,186 @@
+// components/HeroSection.tsx
 'use client';
-import React, { useEffect, useRef, useState } from "react";
 
-const SolutionsSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsContainerRef = useRef<HTMLDivElement>(null);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const ticking = useRef(false);
+import Image from 'next/image';
+import { useRef, useEffect, useState } from 'react';
+import ResponsiveBadge from './ResponsiveBadge';
 
-  const cards = [
-    {
-      id: 1,
-      title: "Bites",
-      description:
-        "Streamline your restaurant operations with powerful management tools.",
-      image: "/icons/BitesN.svg",
-    },
-    {
-      id: 2,
-      title: "Form House",
-      description:
-        "Build unlimited AI-powered forms with ease and efficiency.",
-      image: "/icons/KisformsN.svg",
-    },
-    {
-      id: 3,
-      title: "Postmate",
-      description:
-        "Create engaging content effortlessly with AI-driven automation.",
-      image: "/icons/PostmateN.svg",
-    },
-    {
-      id: 4,
-      title: "Screenly",
-      description:
-        "Upload, schedule, and control content across TVs, kiosks, tablets — all in one.",
-      image: "/icons/ScreenlyN.svg",
-    },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!ticking.current) {
-        window.requestAnimationFrame(() => {
-          if (!sectionRef.current) return;
-
-          const sectionRect = sectionRef.current.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const totalScrollDistance = viewportHeight * (cards.length - 1);
-
-          let progress = 0;
-          if (sectionRect.top <= 0) {
-            progress = Math.min(
-              1,
-              Math.max(0, Math.abs(sectionRect.top) / totalScrollDistance)
-            );
-          }
-
-          const cardIndex = Math.min(
-            cards.length - 1,
-            Math.floor(progress * cards.length)
-          );
-          setActiveCardIndex(cardIndex);
-
-          ticking.current = false;
-        });
-
-        ticking.current = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [cards.length]);
-
-  return (
-    <div
-      ref={sectionRef}
-      className="relative"
-      style={{ height: `${cards.length * 100}vh` }}
-    >
-      <section
-        id="products"
-        className="w-full h-screen py-4 sm:py-6 md:py-8 lg:py-12 sticky top-0 overflow-hidden 
-                   bg-white dark:bg-black text-black dark:text-white transition-colors"
-      >
-        <div className="container px-4 sm:px-6 lg:px-8 mx-auto h-full flex flex-col">
-          {/* Section Header */}
-          <div className="mb-4 sm:mb-6">
-            <div className="flex items-center gap-3 sm:gap-4 mb-2 pt-4 sm:pt-6">
-              <div
-                className="opacity-0 animate-fade-in"
-                style={{ animationDelay: "0.1s" }}
-              >
-                <span className="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full 
-                                 bg-[#0084FF] dark:bg-[#71BBFF] text-white text-xs sm:text-sm mr-2">
-                  02
-                </span>
-                <span className="text-[#4F4B5C] dark:text-[#C2C2C2] text-sm sm:text-base">
-                  Products
-                </span>
-              </div>
-            </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold 
-                           text-[#110C22] dark:text-white">
-              Our Suite
-            </h2>
-          </div>
-
-          {/* Cards */}
-          <div
-            ref={cardsContainerRef}
-            className="relative flex-1 [perspective:800px] sm:[perspective:1000px]"
-          >
-            {cards.map((card, index) => {
-              const isVisible = activeCardIndex >= index;
-              return (
-                <div
-                  key={card.id}
-                  className={`absolute inset-0 overflow-hidden rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg 
-                             transition-all duration-500 ${isVisible ? "animate-card-enter" : ""}`}
-                  style={{
-                    zIndex: 10 + index,
-                    transform: `translateY(${
-                      isVisible
-                        ? index === activeCardIndex
-                          ? `${20 + index * 5}px`
-                          : `${10 + index * 2}px`
-                        : "100px"
-                    }) scale(${1 - (cards.length - 1 - index) * 0.03})`,
-                    opacity: isVisible ? 1 : 0,
-                    pointerEvents: isVisible ? "auto" : "none",
-                  }}
-                >
-                  <div
-                    className="relative z-10 p-3 sm:p-4 md:p-6 lg:p-8 h-full 
-                               flex flex-col sm:flex-row sm:items-center sm:justify-between
-                               rounded-xl sm:rounded-2xl transition-colors
-                               bg-gradient-to-br from-gray-50 via-blue-50 to-blue-100
-                               dark:from-[#1e1e2e] dark:via-[#2a2a4a] dark:to-[#3b3b6a]
-                               text-[#110C22] dark:text-white
-                               min-h-[200px] sm:min-h-[240px] md:min-h-[280px]"
-                  >
-                    <div className="max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl 
-                                   flex flex-col gap-3 sm:gap-4 flex-1">
-                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
-                        {card.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm md:text-base text-[#4F4B5C] dark:text-[#C2C2C2]">
-                        {card.description}
-                      </p>
-                    </div>
-                    
-                    {/* Image container */}
-                    <div className="mt-4 sm:mt-0 sm:ml-4 flex justify-center sm:justify-end flex-shrink-0">
-                      <img
-                        src={card.image}
-                        alt={card.title}
-                        className="max-w-[300px] sm:max-w-[400px] md:max-w-[420px] lg:max-w-[620px] object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+type Product = {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  tag: string;
 };
 
-export default SolutionsSection;
+const products: Product[] = [
+  {
+    id: 'bites',
+    title: 'Bites',
+    subtitle: 'Restaurant Management Software',
+    image: '/icons/BitesN.svg',
+    tag: 'Bites',
+  },
+  {
+    id: 'linkedin-ai',
+    title: 'LinkedIn AI Agent',
+    subtitle: 'Automated Lead Generation',
+    image: '/icons/PostmateN.svg',
+    tag: 'LinkedIn AI Agent',
+  },
+  {
+    id: 'retailer-crm',
+    title: "Retailer's CRM",
+    subtitle: 'Customer Relationship Management',
+    image: '/icons/ScreenlyN.svg',
+    tag: "Retailer's CRM",
+  },
+  {
+    id: 'KisForm',
+    title: 'Kisform',
+    subtitle: 'Debt Recovery Made Easy',
+    image: '/icons/KisformsN.svg',
+    tag: 'kisform',
+  },
+];
+
+export default function HeroSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Map<string, HTMLDivElement | null>>(new Map());
+  const [activeId, setActiveId] = useState('bites');
+
+  const setRef = (id: string) => (el: HTMLDivElement | null) => {
+    if (el) cardRefs.current.set(id, el);
+    else cardRefs.current.delete(id);
+  };
+
+  const scrollToCard = (id: string) => {
+    const card = cardRefs.current.get(id);
+    card?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const rect = container.getBoundingClientRect();
+      const center = rect.left + rect.width / 2;
+      let closest = '';
+      let minDist = Infinity;
+
+      cardRefs.current.forEach((el, id) => {
+        if (!el) return;
+        const cardRect = el.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const dist = Math.abs(cardCenter - center);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = id;
+        }
+      });
+
+      if (closest && closest !== activeId) setActiveId(closest);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [activeId]);
+
+  // Auto-center first card on mount
+  useEffect(() => {
+    setTimeout(() => {
+      cardRefs.current.get('bites')?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    }, 100);
+  }, []);
+
+  return (
+    <section className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] flex flex-col items-center justify-center py-[32px] md:py-[48px] lg:py-[64px] xl:py-[80px] gap-[24px] md:gap-[32px] lg:gap-[40px] overflow-hidden">
+      
+      <ResponsiveBadge label="Our Product" />
+
+      {/* Main Heading */}
+      <h1 className="font-inter font-semibold text-[26px] md:text-[44px] lg:text-[52px] xl:text-[64px] leading-[40px] md:leading-[64px] xl:leadding-[72px] tracking-[-1%] text-center text-[#110C22] dark:text-white px-[24px] md:px-[40px] lg:px-[56px] xl:px-[64px]">
+        <span className="text-[#0A6CDB]">Solutions</span> for Every
+        <br />
+        Business Need.
+      </h1>
+
+      {/* Scrollable Device Mockups */}
+      <div
+        ref={scrollRef}
+        className="w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        style={{ scrollSnapType: 'x mandatory' }}
+      >
+        <div className="flex gap-8 lg:gap-16 justify-start items-center min-w-max px-8 lg:px-16">
+          {/* Left spacer - increased for better centering */}
+          <div className="flex-none w-[30vw] lg:w-[20vw]" />
+
+          {products.map((product) => (
+            <div
+              key={product.id}
+              ref={setRef(product.id)}
+              onClick={() => scrollToCard(product.id)}
+              className={`
+                flex-none transition-all duration-500 cursor-pointer select-none
+                ${activeId === product.id ? 'scale-100 z-10' : 'scale-100 opacity-70'}
+              `}
+              style={{ scrollSnapAlign: 'center' }}
+            >
+              <div className={`
+                flex flex-col items-center justify-center rounded-[40px] px-[32px] py-[48px] gap-[32px]
+                transition-all duration-500 w-[90vw] max-w-[735px]
+                bg-white dark:bg-[#0C0C0C]
+              `}>
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  width={735}
+                  height={403}
+                  className="w-full"
+                />
+                <p className="font-manrope font-medium text-[14px] md:text-[16px] leading-[24px] text-center text-[#4F4B5C] dark:text-[#C2C2C2]">
+                  {product.title} : {product.subtitle}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          {/* Right spacer */}
+          <div className="flex-none w-[30vw] lg:w-[20vw]" />
+        </div>
+      </div>
+
+      {/* Product Tags */}
+      <div className="flex justify-center bg-[#ECECED] dark:bg-[#1F1F1F] rounded-[48px] p-1 gap-2">
+        {products.map((p) => (
+          <span
+            key={p.id}
+            onClick={() => scrollToCard(p.id)}
+            className={`
+              px-[8px] md:px-[12px] py-1 md:py-[8px] rounded-[68px] font-manrope font-bold text-[12px] md:text-[14px] leading-[18px] md:leading-[24px] align-middle cursor-pointer transition-all
+              ${activeId === p.id
+                ? 'bg-white dark:bg-[#2A2A2A] text-[#4F4B5C] dark:text-[#C2C2C2]'
+                : 'text-[#8D8A95] dark:text-[#7A7A7A] hover:bg-white/70 dark:hover:bg-[#2A2A2A]/70 '
+              }
+            `}
+          >
+            {p.tag}
+          </span>
+        ))}
+      </div>
+
+      {/* Dynamic Description */}
+      <p className="w-[382px] md:w-[606px] lg:w-[772px] font-manrope font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-[24px] text-center text-[#4F4B5C] dark:text-[#C2C2C2] px-[24px] md:px-[40px] lg:px-[56px] xl:px-[64px]">
+        Manage every aspect of your restaurant — from digital menus and real-time kitchen displays to seamless billing, analytics, and POS integration.
+      </p>
+
+      {/* Hide scrollbar */}
+      <style jsx>{`
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+      `}</style>
+    </section>
+  );
+}

@@ -19,26 +19,26 @@ export default function Hero() {
               text-[32px] leading-[40px] tracking-[-0.01em] font-inter font-bold
               md:text-[52px] md:leading-[64px] md:tracking-[-0.01em] md:font-manrope md:font-semibold
               lg:text-[76px] lg:leading-[88px] lg:tracking-[0] lg:font-bold
-              xl:text-[88px] xl:leading-[96px]"
+              xl:text-[88px] xl:leading-[96px] text-wrap"
           >
-            Empowering Businesses with <br /> Smart Software Solutions
+            Empowering Businesses with Smart Software Solutions
           </h1>
 
           <p
             className="text-[#4F4B5C] dark:text-[#C2C2C2] text-center 
               font-manrope font-medium text-[16px] leading-[24px]
               md:text-[18px] lg:font-inter lg:text-[20px] 
-              lg:leading-[32px] lg:tracking-[-0.01em]">
-            From restaurants to enterprise management, we <br className="hidden sm:inline" /> build tools that grow with your goals.
+              lg:leading-[32px] lg:tracking-[-0.01em] text-wrap">
+            From restaurants to enterprise management, we build tools that grow with your goals.
           </p>
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-center items-center gap-4 w-fit h-fit">
-        <Button variant="outline" className="text-[#4F4B5C] dark:text-[#C2C2C2] hover:bg-[#F8F8F8] bg-[#FFFFFF] dark:bg-[#0C0C0C] gap-3 opacity-100 p-5 rounded-10 border-[#F3F3F4] align-middle font-manrope font-semibold text-[14px] leading-[24px] md:text-[16px] lg:text-[18px]">
+        <div className="flex gap-4 w-fit h-fit">
+        <Button variant="outline" className="text-[#4F4B5C] dark:text-[#C2C2C2] hover:bg-[#F8F8F8] bg-[#FFFFFF] dark:bg-[#0C0C0C] gap-3 opacity-100 px-[16px] py-6 rounded-[16px] border-[#F3F3F4] align-middle font-manrope font-semibold text-[14px] leading-[24px] md:text-[16px] lg:text-[18px]">
             Schedule a Demo
           </Button>
-          <Button className="bg-[#0A6CDB] dark:text-white dark:bg-[#3490EF] hover:bg-[#1D7FE2] rounded-10 p-5 gap-3 align-middle font-manrope font-semibold text-[14px] leading-[24px] sm:text-[16px] md:text-[18px] lg:text-[18px]">
+          <Button className="bg-[#0A6CDB] dark:text-white dark:bg-[#3490EF] hover:bg-[#1D7FE2] rounded-[16px] px-[16px] py-6 gap-3 align-middle font-manrope font-semibold text-[14px] leading-[24px] sm:text-[16px] md:text-[18px] lg:text-[18px]">
             Contact Us
           </Button>
         </div>

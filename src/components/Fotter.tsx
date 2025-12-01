@@ -32,32 +32,32 @@ export default function Footer() {
         {/* Logo & Description */}
         <div className="flex flex-col w-[190px] h-fit gap-[20px] lg:w-[276px] xl:w-fit xl:gap-[24px]">
           <h2 className="flex items-start text-[20px] w-[88px] h-[40px] text-center text-[#110C22] dark:text-white
-                leading-[40px] font-[400] tracking-[-0.01em] xl:w-[114px] xl:text-[26px]">Kosal.io</h2>
+                font-black-han-sans font-normal text-[26px] leading-[40px] tracking-[-1%] text-center xl:w-[114px] xl:text-[26px]">Kosal.io</h2>
 
           <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-medium text-[16px] lg:text-[18px] leading-[24px] tracking-[0] w-[190px] h-[72px] lg:w-[276px] lg:h-[48px] font-manrope">
             Empowering Businesses with Smart Software Solutions
           </p>
 
           <div className="w-fit h-fit flex gap-4">
-            <div className="relative w-[10.4px] h-[19px] top-[2.5px] left-[6.8px]">
+            <a href="https://www.facebook.com/Kosal.io" target="_blank" rel="noopener noreferrer" className="relative w-[10.4px] h-[19px] top-[2.5px] left-[6.8px]">
               <Image
                 src="/icons/facebook.svg"
                 alt="Facebook"
                 fill
                 className="cursor-pointer text-[#4F4B5C] dark:text-[#C2C2C2]"
               />
-            </div>
+            </a>
 
-            <div className="relative w-[17.14px] h-[17.14px] top-[3.43px] left-[3.43px]">
+            <a href="https://x.com/kosaldotio" target="_blank" rel="noopener noreferrer" className="relative w-[17.14px] h-[17.14px] top-[3.43px] left-[3.43px]">
               <Image
-                src="/icons/x.svg"
+                src="/icons/X.svg"
                 alt="X"
                 fill
                 className="cursor-pointer text-[#4F4B5C] dark:text-[#C2C2C2]"
               />
-            </div>
+            </a>
 
-            <div className="relative w-[20.5px] h-[20.5px]">
+            <a href="https://www.linkedin.com/company/kosal/" target="_blank" rel="noopener noreferrer" className="relative w-[20.5px] h-[20.5px]">
               <Image
                 src="/icons/linkedin.svg"
                 alt="LinkedIn"
@@ -65,7 +65,7 @@ export default function Footer() {
                 className="absolute top-0 left-0 cursor-pointer 
                text-[#4F4B5C] dark:text-[#C2C2C2]"
               />
-            </div>
+            </a>
 
           </div>
         </div>
@@ -154,17 +154,17 @@ export default function Footer() {
             <div className="flex flex-row gap-8 h-fit mt-2 py-4 lg:mt-0">
         
               <div className="flex  h-fit gap-1 pb-[2px]">
-                <a href="#" className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-semibold align-middle hover:underline text-[12px] leading-[16px] h-[16px] xl:text-[14px] xl:leading-[24px] xl:h-[24px]">
+                <a href="/privacy-policy" className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-semibold align-middle hover:underline text-[12px] leading-[16px] h-[16px] xl:text-[14px] xl:leading-[24px] xl:h-[24px]">
                   Privacy Policy</a>
               </div>
             
               <div className="flex h-fit gap-1 pb-[2px]">
-                <a href="#" className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-semibold align-middle hover:underline text-[12px] leading-[16px] h-[16px] xl:text-[14px] xl:leading-[24px] xl:h-[24px]">
+                <a href="/terms-of-services" className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-semibold align-middle hover:underline text-[12px] leading-[16px] h-[16px] xl:text-[14px] xl:leading-[24px] xl:h-[24px]">
                   Terms of Service</a>
               </div>
              
               <div className="flex h-fit gap-1 pb-[2px]">
-                <a href="#" className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-semibold align-middle hover:underline text-[12px] leading-[16px] h-[16px] xl:text-[14px] xl:leading-[24px] xl:h-[24px]">
+                <a href="/cookies-policy" className="font-manrope text-[#4F4B5C] dark:text-[#C2C2C2] font-semibold align-middle hover:underline text-[12px] leading-[16px] h-[16px] xl:text-[14px] xl:leading-[24px] xl:h-[24px]">
                   Cookie Policy</a>
               </div>
             

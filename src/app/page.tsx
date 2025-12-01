@@ -8,20 +8,22 @@ import AccelerateSection from "@/components/CTACard";
 import ContactSection from "@/components/ContactSection";
 import Fotter from "@/components/Fotter";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-       <div>
-          <Hero/>
-          <AboutUsSection />
-          <SolutionsSection />
-          <OurServices />
-          <WhyChooseKosal />
-          <LadderAcademySection />
-          <AccelerateSection />
-          <ContactSection />
-          <Fotter/>
-          <SmoothCursor />
-       </div> 
+    <>
+      <Navbar />
+      <Hero />
+      <AboutUsSection />
+      <SolutionsSection />
+      <OurServices />
+      <WhyChooseKosal />
+      <LadderAcademySection />
+      <AccelerateSection />
+      <ContactSection />
+      <Fotter />
+      <SmoothCursor />
+    </>
   );
 }

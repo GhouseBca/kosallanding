@@ -45,13 +45,13 @@ export default function AboutUsSection() {
                         className="text-[#4F4B5C] dark:text-[#C2C2C2] font-manrope font-medium 
                         text-[12px] leading-[16px] md:text-[14px] md:leading-[24px] 
                         lg:text-[16px] lg:leading-[24px] xl:text-[18px] xl:leading-[24px]
-                        w-full lg:w-1/2"
+                        w-full lg:w-1/2 text-wrap"
                     >
                         Kosal.io is a technology-driven company that builds tailored software solutions to help businesses streamline their operations and scale with confidence.
-                        <span className="block mt-4">
+                        <span className="block mt-4 text-wrap">
                             We specialize in industry-specific platforms — like Bites, our restaurant management system — and custom enterprise tools for sectors such as retail and services.
                         </span>
-                        <span className="block mt-4">
+                        <span className="block mt-4 text-wrap">
                             Our products are designed for performance, integration, and growth, powered by a team that understands both local needs and global standards.
                         </span>
                     </p>
