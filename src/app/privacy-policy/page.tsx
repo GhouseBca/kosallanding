@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
               KOSAL
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Shield className="w-4 h-4 text-accent" />
+              <Shield className="w-4 h-4 text-primary" />
               <span>Secure & Private</span>
             </div>
           </div>
@@ -40,10 +40,9 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <img src="/Kosallogo 1.svg" alt="Privacy Icon" className="w-8 h-8" />
               <h1 className="text-5xl font-bold text-foreground">Privacy Policy</h1>
             </div>
-            <p className="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-primary mb-8 max-w-2xl mx-auto">
               Your privacy is important to us. We committed to protecting your personal information and being
               transparent about our practices.
             </p>
@@ -68,7 +67,7 @@ export default function PrivacyPolicyPage() {
             <aside className="lg:col-span-1">
               <div className="sticky top-24 bg-card rounded-lg border border-border p-6">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <Eye className="w-4 h-4 text-accent" />
+                  <Eye className="w-4 h-4 text-primary" />
                   Quick Navigation
                 </h3>
                 <nav className="space-y-2">
@@ -76,7 +75,7 @@ export default function PrivacyPolicyPage() {
                     <a
                       key={section.id}
                       href={`#${section.id}`}
-                      className="block text-sm text-muted-foreground hover:text-accent py-1 hover:pl-2 transition-all duration-200"
+                      className="block text-sm text-muted-foreground hover:text-primary py-1 hover:pl-2 transition-all duration-200"
                     >
                       {section.title}
                     </a>
@@ -111,7 +110,7 @@ export default function PrivacyPolicyPage() {
                 {/* Introduction */}
                 <section id="introduction">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     Introduction
                   </h2>
                   <p>
@@ -122,7 +121,7 @@ export default function PrivacyPolicyPage() {
                 {/* Information Collection */}
                 <section id="collection">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Users className="w-6 h-6 text-accent" />
+                    <Users className="w-6 h-6 text-primary" />
                     Information Collection
                   </h2>
                   <p>We may collect information you provide directly (name, email, payment details) and automatically (cookies, device info, analytics).</p>
@@ -131,7 +130,7 @@ export default function PrivacyPolicyPage() {
                 {/* How Data is Used */}
                 <section id="usage">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     How Data is Used
                   </h2>
                   <ul>
@@ -145,7 +144,7 @@ export default function PrivacyPolicyPage() {
                 {/* Data Sharing */}
                 <section id="sharing">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Users className="w-6 h-6 text-accent" />
+                    <Users className="w-6 h-6 text-primary" />
                     Data Sharing
                   </h2>
                   <p>
@@ -156,7 +155,7 @@ export default function PrivacyPolicyPage() {
                 {/* Cookies & Tracking */}
                 <section id="tracking">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     Cookies & Tracking
                   </h2>
                   <p>
@@ -167,7 +166,7 @@ export default function PrivacyPolicyPage() {
                 {/* Data Security */}
                 <section id="security">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Lock className="w-6 h-6 text-accent" />
+                    <Lock className="w-6 h-6 text-primary" />
                     Data Security
                   </h2>
                   <p>
@@ -178,7 +177,7 @@ export default function PrivacyPolicyPage() {
                 {/* User Rights */}
                 <section id="rights">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Users className="w-6 h-6 text-accent" />
+                    <Users className="w-6 h-6 text-primary" />
                     User Rights
                   </h2>
                   <p>
@@ -193,7 +192,7 @@ export default function PrivacyPolicyPage() {
                 {/* Changes to Policy */}
                 <section id="changes">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     Changes to Policy
                   </h2>
                   <p>
@@ -204,7 +203,7 @@ export default function PrivacyPolicyPage() {
                 {/* Contact */}
                 <section id="contact">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Mail className="w-6 h-6 text-accent" />
+                    <Mail className="w-6 h-6 text-primary" />
                     Contact Information
                   </h2>
                   <p>
@@ -224,7 +223,7 @@ export default function PrivacyPolicyPage() {
       <footer className="border-t border-border bg-card/50 mt-16">
         <div className="container mx-auto px-4 py-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <img src="/Kosallogo 1.svg" alt="Privacy Icon" className="w-5 h-5" />
+            <img src="/icons/Kosallogo 1.svg" alt="Privacy Icon" className="w-5 h-5" />
             <span className="font-medium text-foreground">Kosal IT Solutions</span>
           </div>
           <div className="text-sm text-muted-foreground">

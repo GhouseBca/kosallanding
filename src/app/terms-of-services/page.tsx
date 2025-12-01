@@ -32,7 +32,7 @@ export default function TermsOfServicePage() {
               KOSAL
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Shield className="w-4 h-4 text-accent" />
+              <Shield className="w-4 h-4 text-primary" />
               <span>Trusted & Transparent</span>
             </div>
           </div>
@@ -44,11 +44,10 @@ export default function TermsOfServicePage() {
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <img src="/Kosallogo 1.svg" alt="Terms Icon" className="w-8 h-8" />
               <h1 className="text-5xl font-bold text-foreground">Terms of Service</h1>
             </div>
             {/* CHANGED LINE: text-secondary instead of text-black */}
-            <p className="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-primary mb-8 max-w-2xl mx-auto">
               Please review these Terms of Service carefully before using our platform. By accessing our services, you
               agree to these rules and responsibilities.
             </p>
@@ -74,7 +73,7 @@ export default function TermsOfServicePage() {
             <aside className="lg:col-span-1">
               <div className="sticky top-24 bg-card rounded-lg border border-border p-6">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-accent" />
+                  <FileText className="w-4 h-4 text-primary" />
                   Quick Navigation
                 </h3>
                 <nav className="space-y-2">
@@ -82,7 +81,7 @@ export default function TermsOfServicePage() {
                     <a
                       key={section.id}
                       href={`#${section.id}`}
-                      className="block text-sm text-muted-foreground hover:text-accent py-1 hover:pl-2 transition-all duration-200"
+                      className="block text-sm text-muted-foreground hover:text-primary py-1 hover:pl-2 transition-all duration-200"
                     >
                       {section.title}
                     </a>
@@ -114,7 +113,7 @@ export default function TermsOfServicePage() {
               <div className="prose prose-gray dark:prose-invert max-w-none space-y-12">
                 <section id="acceptance">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     Acceptance of Terms
                   </h2>
                   <p>
@@ -125,7 +124,7 @@ export default function TermsOfServicePage() {
 
                 <section id="services">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Users className="w-6 h-6 text-accent" />
+                    <Users className="w-6 h-6 text-primary" />
                     Use of Services
                   </h2>
                   <p>
@@ -136,7 +135,7 @@ export default function TermsOfServicePage() {
 
                 <section id="accounts">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Lock className="w-6 h-6 text-accent" />
+                    <Lock className="w-6 h-6 text-primary" />
                     User Accounts
                   </h2>
                   <p>
@@ -147,7 +146,7 @@ export default function TermsOfServicePage() {
 
                 <section id="ip">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     Intellectual Property
                   </h2>
                   <p>
@@ -158,7 +157,7 @@ export default function TermsOfServicePage() {
 
                 <section id="conduct">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Ban className="w-6 h-6 text-accent" />
+                    <Ban className="w-6 h-6 text-primary" />
                     User Conduct
                   </h2>
                   <p>Users must not misuse the platform by posting harmful, illegal, or abusive content.</p>
@@ -166,7 +165,7 @@ export default function TermsOfServicePage() {
 
                 <section id="liability">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Scale className="w-6 h-6 text-accent" />
+                    <Scale className="w-6 h-6 text-primary" />
                     Limitation of Liability
                   </h2>
                   <p>
@@ -177,7 +176,7 @@ export default function TermsOfServicePage() {
 
                 <section id="termination">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Ban className="w-6 h-6 text-accent" />
+                    <Ban className="w-6 h-6 text-primary" />
                     Termination
                   </h2>
                   <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
@@ -185,7 +184,7 @@ export default function TermsOfServicePage() {
 
                 <section id="disputes">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Gavel className="w-6 h-6 text-accent" />
+                    <Gavel className="w-6 h-6 text-primary" />
                     Dispute Resolution
                   </h2>
                   <p>Disputes will be resolved under applicable arbitration or court procedures in your jurisdiction.</p>
@@ -193,7 +192,7 @@ export default function TermsOfServicePage() {
 
                 <section id="law">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Book className="w-6 h-6 text-accent" />
+                    <Book className="w-6 h-6 text-primary" />
                     Governing Law
                   </h2>
                   <p>These Terms are governed by the laws of your country/state of operation.</p>
@@ -201,7 +200,7 @@ export default function TermsOfServicePage() {
 
                 <section id="changes">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-accent" />
+                    <FileText className="w-6 h-6 text-primary" />
                     Changes to Terms
                   </h2>
                   <p>
@@ -212,7 +211,7 @@ export default function TermsOfServicePage() {
 
                 <section id="contact">
                   <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
-                    <Mail className="w-6 h-6 text-accent" />
+                    <Mail className="w-6 h-6 text-primary" />
                     Contact Us
                   </h2>
                   <p>
@@ -233,7 +232,7 @@ export default function TermsOfServicePage() {
       <footer className="border-t border-border bg-card/50 mt-16">
         <div className="container mx-auto px-4 py-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <img src="/Kosallogo 1.svg" alt="Logo" className="w-5 h-5" />
+            <img src="/icons/Kosallogo 1.svg" alt="Logo" className="w-5 h-5" />
             <span className="font-medium text-foreground">Kosal IT Solutions</span>
           </div>
           <div className="text-sm text-muted-foreground">

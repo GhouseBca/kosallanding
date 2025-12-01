@@ -12,42 +12,42 @@ export default function CookiePolicyPage() {
     {
       id: "what-cookies",
       title: "What Are Cookies?",
-      icon: <Cookie className="w-6 h-6 text-accent" />,
+      icon: <Cookie className="w-6 h-6 text-primary" />,
       content:
         "Cookies are small text files stored on your device when you visit our website. They help us recognize your device, remember your preferences, and improve your browsing experience.",
     },
     {
       id: "types",
       title: "Types of Cookies We Use",
-      icon: <Shield className="w-6 h-6 text-accent" />,
-      content:
+      icon: <Shield className="w-6 h-6 text-primary" />,
+      content:  
         "We use essential cookies (for login & security), functional cookies (to remember preferences), analytics cookies (for site performance), and advertising cookies (to deliver personalized ads).",
     },
     {
       id: "third-party",
       title: "Third-Party Cookies",
-      icon: <BarChart className="w-6 h-6 text-accent" />,
+      icon: <BarChart className="w-6 h-6 text-primary" />,
       content:
         "Some cookies are set by third-party providers like Google Analytics or advertising partners to measure traffic and deliver relevant ads.",
     },
     {
       id: "why-cookies",
       title: "Why We Use Cookies",
-      icon: <Settings className="w-6 h-6 text-accent" />,
+      icon: <Settings className="w-6 h-6 text-primary" />,
       content:
         "Cookies allow us to provide a smoother experience by keeping you signed in, remembering settings, analyzing usage, and showing personalized content.",
     },
     {
       id: "managing",
       title: "Managing Cookies",
-      icon: <Globe className="w-6 h-6 text-accent" />,
+      icon: <Globe className="w-6 h-6 text-primary" />,
       content:
         "You can manage or disable cookies through your browser settings. Please note that disabling essential cookies may affect site functionality.",
     },
     {
       id: "contact",
       title: "Contact Us",
-      icon: <Mail className="w-6 h-6 text-accent" />,
+      icon: <Mail className="w-6 h-6 text-primary" />,
       content:
         <>If you have any questions about our Cookie Policy, contact us at <a href="mailto:support@example.com" className="text-primary hover:underline">support@example.com</a>.</>,
     },
@@ -63,7 +63,7 @@ export default function CookiePolicyPage() {
               KOSAL
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Cookie className="w-4 h-4 text-accent" />
+              <Cookie className="w-4 h-4 text-primary" />
               <span>Cookie Transparency</span>
             </div>
           </div>
@@ -75,10 +75,9 @@ export default function CookiePolicyPage() {
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <img src="/Kosallogo 1.svg" alt="Cookie Icon" className="w-8 h-8" />
               <h1 className="text-5xl font-bold text-foreground">Cookie Policy</h1>
             </div>
-            <p className="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-primary mb-8 max-w-2xl mx-auto">
               Learn how we use cookies and how you can manage your preferences.
             </p>
             <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
@@ -103,7 +102,7 @@ export default function CookiePolicyPage() {
             <aside className="lg:col-span-1">
               <div className="sticky top-24 bg-card rounded-lg border border-border p-6">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <Cookie className="w-4 h-4 text-accent" />
+                  <Cookie className="w-4 h-4 text-primary" />
                   Quick Navigation
                 </h3>
                 <nav className="space-y-2">
@@ -111,7 +110,7 @@ export default function CookiePolicyPage() {
                     <a
                       key={section.id}
                       href={`#${section.id}`}
-                      className="block text-sm text-muted-foreground hover:text-accent py-1 hover:pl-2 transition-all duration-200"
+                      className="block text-sm text-muted-foreground hover:text-primary py-1 hover:pl-2 transition-all duration-200"
                     >
                       {section.title}
                     </a>
@@ -160,7 +159,7 @@ export default function CookiePolicyPage() {
       <footer className="border-t border-border bg-card/50 mt-16">
         <div className="container mx-auto px-4 py-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <img src="/Kosallogo 1.svg" alt="Logo" className="w-5 h-5" />
+            <img src="/icons/Kosallogo 1.svg" alt="Logo" className="w-5 h-5" />
             <span className="font-medium text-foreground">Kosal IT Solutions</span>
           </div>
           <div className="text-sm text-muted-foreground">
