@@ -13,9 +13,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false); // This fixes hydration!
 
   const dropdownRefDesktop = useRef<HTMLDivElement>(null);
   const dropdownRefMobile = useRef<HTMLDivElement>(null);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
@@ -29,7 +35,6 @@ export default function Navbar() {
     setShowProducts(false);
   }, []);
 
-  // Fixed: proper typing instead of `any`
   const handleNavClick = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     scrollToSection(id);
@@ -59,6 +64,26 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showProducts]);
+
+  // Theme toggle button — now 100% safe
+  const ThemeToggleButton = () => {
+    if (!mounted) {
+      // Render placeholder during SSR to prevent mismatch
+      return <div className="w-9 h-9" />;
+    }
+
+    const isDark = theme === "dark";
+
+    return (
+      <button
+        onClick={() => setTheme(isDark ? "light" : "dark")}
+        className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+        aria-label="Toggle theme"
+      >
+        {isDark ? <Sun size={18} /> : <Moon size={18} />}
+      </button>
+    );
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black flex items-center justify-between px-8 py-4 lg:px-10 shadow-sm">
@@ -133,24 +158,13 @@ export default function Navbar() {
 
       {/* Desktop Right Side */}
       <div className="hidden xl:flex items-center gap-4">
-        <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-          aria-label="Toggle theme"
-        >
-          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
+        <ThemeToggleButton />
         <Button>Contact Us</Button>
       </div>
 
       {/* Mobile Menu */}
       <div className="xl:hidden flex items-center gap-4">
-        <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-        >
-          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
+        <ThemeToggleButton />
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>

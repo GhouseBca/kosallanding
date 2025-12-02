@@ -32,7 +32,7 @@ export default function Footer() {
         {/* Logo & Description */}
         <div className="flex flex-col w-[190px] h-fit gap-[20px] lg:w-[276px] xl:w-fit xl:gap-[24px]">
           <h2 className="flex items-start text-[20px] w-[88px] h-[40px] text-center text-[#110C22] dark:text-white
-                font-black-han-sans font-normal text-[26px] leading-[40px] tracking-[-1%] text-center xl:w-[114px] xl:text-[26px]">Kosal.io</h2>
+                font-blackhan font-normal text-[26px] leading-[40px] tracking-[-1%] text-center xl:w-[114px] xl:text-[26px]">Kosal.io</h2>
 
           <p className="text-[#4F4B5C] dark:text-[#C2C2C2] font-medium text-[16px] lg:text-[18px] leading-[24px] tracking-[0] w-[190px] h-[72px] lg:w-[276px] lg:h-[48px] font-manrope">
             Empowering Businesses with Smart Software Solutions

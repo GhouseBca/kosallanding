@@ -113,7 +113,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] flex flex-col items-center justify-center py-[32px] md:py-[48px] lg:py-[64px] xl:py-[80px] gap-[24px] md:gap-[32px] lg:gap-[40px] overflow-hidden">
+    <section id='products' className="w-full h-fit bg-[#F8F8F8] dark:bg-[#161616] flex flex-col items-center justify-center py-[32px] md:py-[48px] lg:py-[64px] xl:py-[80px] gap-[24px] md:gap-[32px] lg:gap-[40px] overflow-hidden">
       
       <ResponsiveBadge label="Our Product" />
 

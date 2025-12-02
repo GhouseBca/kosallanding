@@ -1,13 +1,19 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { Cookie, Shield, BarChart, Settings, Globe, MapPin, Mail } from "lucide-react"
+'use client'
 
-export const metadata: Metadata = {
-  title: "Kosal Cookie Policy",
-  description: "Learn how we use cookies and how you can manage your preferences.",
-}
+import Link from "next/link"
+import { Cookie, FileText, Shield, BarChart, Settings, Globe, MapPin, Mail } from "lucide-react"
+import { useCallback, useEffect, useState } from 'react'
+
 
 export default function CookiePolicyPage() {
+  const [currentDate, setCurrentDate] = useState<string>("")
+
+  // Only run on client → no hydration mismatch
+  useEffect(() => {
+    const date = new Date().toLocaleDateString('en-GB') // or 'en-US' → consistent format
+    setCurrentDate(date)
+  }, [])
+
   const sections = [
     {
       id: "what-cookies",
@@ -49,9 +55,20 @@ export default function CookiePolicyPage() {
       title: "Contact Us",
       icon: <Mail className="w-6 h-6 text-primary" />,
       content:
-        <>If you have any questions about our Cookie Policy, contact us at <a href="mailto:support@example.com" className="text-primary hover:underline">support@example.com</a>.</>,
+        <>If you have any questions about our Cookie Policy, contact us at <a href="mailto:support@kosal.io" className="text-primary hover:underline">support@kosal.io</a>.</>,
     },
   ]
+
+  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    const element = document.getElementById(id)
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      })
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-background">
@@ -59,8 +76,9 @@ export default function CookiePolicyPage() {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-semibold text-foreground hover:text-accent transition-colors">
-              KOSAL
+            <Link href="/">
+              <img src="/icons/Logo Text.svg" alt="Kosal" className="h-6 block dark:hidden" />
+              <img src="/icons/DarkLogo Text.svg" alt="Kosal" className="h-6 hidden dark:block" />
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Cookie className="w-4 h-4 text-primary" />
@@ -73,28 +91,29 @@ export default function CookiePolicyPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-card via-background to-muted/30 border-b border-border">
         <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <h1 className="text-5xl font-bold text-foreground">Cookie Policy</h1>
-            </div>
-            <p className="text-xl text-primary mb-8 max-w-2xl mx-auto">
+          <div className="flex flex-col items-center justify-center gap-4 max-w-4xl mx-auto text-center">
+            <h1 className="font-manrope font-bold text-[88px] leading-[96px] tracking-[0%] text-center text-[#110C22] dark:text-[#FFFFFF]">
+              Cookie Policy
+            </h1>
+            <p className="font-inter font-medium text-[20px] leading-[32px] tracking-[-0.01em] text-center text-[#4F4B5C] dark:text-[#C2C2C2] max-w-3xl">
               Learn how we use cookies and how you can manage your preferences.
             </p>
-            <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
+            <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Cookie className="w-4 h-4" />
-                <span>Updated: {new Date().toLocaleDateString()}</span>
+                <span>Updated: {currentDate || "2 December 2025"}</span>
+                {/* Fallback text prevents hydration flash */}
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>219/b,Tiruchendur Main Road, Samathanapuram, Palayamkottai, Tirunelveli</span>
+                <span>219/b, Tiruchendur Main Road, Samathanapuram, Palayamkottai, Tirunelveli</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main */}
+      {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
@@ -102,7 +121,7 @@ export default function CookiePolicyPage() {
             <aside className="lg:col-span-1">
               <div className="sticky top-24 bg-card rounded-lg border border-border p-6">
                 <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <Cookie className="w-4 h-4 text-primary" />
+                  <FileText className="w-4 h-4 text-primary" />
                   Quick Navigation
                 </h3>
                 <nav className="space-y-2">
@@ -110,13 +129,14 @@ export default function CookiePolicyPage() {
                     <a
                       key={section.id}
                       href={`#${section.id}`}
+                      onClick={(e) => scrollToSection(e, section.id)}
                       className="block text-sm text-muted-foreground hover:text-primary py-1 hover:pl-2 transition-all duration-200"
                     >
                       {section.title}
                     </a>
                   ))}
                 </nav>
-                {/* Indicators */}
+
                 <div className="mt-8 pt-6 border-t border-border">
                   <h4 className="font-medium text-foreground mb-3">Cookie Principles</h4>
                   <div className="space-y-3 text-sm">
@@ -137,16 +157,18 @@ export default function CookiePolicyPage() {
               </div>
             </aside>
 
-            {/* Content */}
+            {/* Sections */}
             <div className="lg:col-span-3">
-              <div className="prose prose-gray dark:prose-invert max-w-none space-y-12">
+              <div className="space-y-12">
                 {sections.map((section) => (
-                  <section key={section.id} id={section.id}>
-                    <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <section key={section.id} id={section.id} className="flex flex-col gap-[16px]">
+                    <h2 className="font-manrope font-bold text-[26px] leading-[24px] tracking-[0] text-[#110C22] dark:text-white flex items-center gap-2">
                       {section.icon}
                       {section.title}
                     </h2>
-                    <p className="text-muted-foreground">{section.content}</p>
+                    <p className="font-manrope font-medium text-[16px] leading-[24px] tracking-[0] text-[#4F4B5C] dark:text-[#C2C2C2]">
+                      {section.content}
+                    </p>
                   </section>
                 ))}
               </div>
@@ -163,7 +185,7 @@ export default function CookiePolicyPage() {
             <span className="font-medium text-foreground">Kosal IT Solutions</span>
           </div>
           <div className="text-sm text-muted-foreground">
-            © 2025 Your Company, Inc. All rights reserved. • Transparent Cookie Practices.
+            © 2025 Kosal. All rights reserved. • Transparent Cookie Practices.
           </div>
         </div>
       </footer>

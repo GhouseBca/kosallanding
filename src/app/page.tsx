@@ -23,7 +23,9 @@ export default function Home() {
       <AccelerateSection />
       <ContactSection />
       <Fotter />
-      <SmoothCursor />
+      <div className="hidden lg:block">
+        <SmoothCursor />
+      </div>
     </>
   );
 }
